@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=BenchNine&family=Oswald&family=Passion+One&display=swap");
+
+body {
+    font-family: "Oswald", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Passion One", cursive;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.btn-group.form-control {
+    padding: 0;
+
+}
+
+/*start here*/
+footer {
+    box-shadow: 0 -4px 3px rgba(0, 0, 0, 0.075);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+
+div.animated[role="alert"] {
+    margin-top: 5%;
+    position: fixed;
+    z-index: 150;
+    width: 100%;
+}
+
+.error {
+    border: #ff0000 solid 1px;
+}
+
+.hide {
+    display: none;
+}
+
+.bestOfYouTube {
+    width: 100%;
+
+    height: auto;
+    min-height: 200px;
+}
+
+/*start carousel css */
+ul.videoindexParent {
+    padding-left: 10px;
+    list-style-type: none;
+}
+
+.youTubeframe,
+.youTubeIframe {
+    width: 100% !important;
+    height: auto;
+    min-height: 250px;
+    overflow: hidden;
+}
+
+li.sliderIndex {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0.5px;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+li.sliderIndex.active {
+    background-color: #333 !important;
+    border: 1px solid #333 !important;
+}
+
+/*end carousel css*/
+
+/*start modal css*/
+#calendarHere {
+    min-height: 300px;
+    border: 0px;
+}
+
+.modal-body {
+    padding: 0px;
+}
+
+/*end modal css*/
+#newsResponse img,
+video {
+    max-width: 100%;
+}
+
+/*start news api*/
+#newsResponse {
+    max-height: 440px;
+    overflow: auto;
+    padding: 0px 5px;
+
+}
+
+#newsResponse img {
+    padding: 8px;
+}
+
+#newsResponse a {
+
+    text-decoration: underline !important;
+}
+
+.rssLink {
+
+
+    margin: 5px 0px !important;
+    color: #000;
+    text-decoration: none !important;
+}
+
+/*end news api*/
+/*start loader animation*/
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+
+#lastRow {
+    margin-bottom: 200px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*start weather css*/
+
+
+ul.inline {
+    width: 100%;
+}
+
+.inline li {
+    margin: auto;
+    display: inline-block;
+    padding: 10px 0px;
+    width: 20%;
+    font-size: .8rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+.inline li img {
+    max-width: 50px;
+    height: auto;
+}

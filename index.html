@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/brands.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/solid.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Homepage</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="d-none col-md-12 d-sm-none d-md-none d-lg-block">
+                <div class="row paddBottom">
+                    <div class="col-md-12">
+                        <ul class="inline weather center">
+                            <!--<li><img src="https://openweathermap.org/img/wn/01d@2x.png" class="img-fluid">
+                                <div class="center">09-10<br>clear sky</div>
+                                <div class="center">High: 102.52 - Low: 100.51</div>
+                            </li>
+                            <li><img src="https://openweathermap.org/img/wn/01d@2x.png" class="img-fluid">
+                                <div class="center">09-11<br>clear sky</div>
+                                <div class="center">High: 101.3 - Low: 101.3</div>
+                            </li>
+                            <li><img src="https://openweathermap.org/img/wn/01d@2x.png" class="img-fluid">
+                                <div class="center">09-12<br>clear sky</div>
+                                <div class="center">High: 97.57 - Low: 97.57</div>
+                            </li>
+                            <li><img src="https://openweathermap.org/img/wn/01d@2x.png" class="img-fluid">
+                                <div class="center">09-13<br>clear sky</div>
+                                <div class="center">High: 96.82 - Low: 96.82</div>
+                            </li>
+                            <li><img src="https://openweathermap.org/img/wn/01d@2x.png" class="img-fluid">
+                                <div class="center">09-14<br>clear sky</div>
+                                <div class="center">High: 92.39 - Low: 92.39</div>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <div class="col-md-3 centerTxt" id="cityName">Scottsdale</div>
+                    <div class="col-md-6">
+                        <div class="input-group"><input type="text" class="form-control"
+                                placeholder="Search weather by US ZIP CODE" name="zipCode"><span
+                                class="input-group-btn"><button class="btn btn-secondary" onClick="BuildWeather()">Go<i
+                                        class="icon-white icon-search"></i></button></span></div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="centerTxt">Tue, 09/09/2025, 3:46 PM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--end weather panel-->
+
+        <div class="row well">
+            <div class="col-md-3">
+                <div>
+                    <form>
+                        <div class="input-group"><input type="text" class="form-control" id="Google"
+                                placeholder="Search Google"><span class="input-group-btn"><button class="btn btn-dark"
+                                    type="submit"> <i class="fab fa-google"></i></button></span></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6"><select class="form-control" id="gameSelection">
+                            <option>Games</option>
+                            <option value="https://aaronrs2002.github.io/black-jack/?">21</option>
+                            <option value="https://aaronrs2002.github.io/texas-holdem/?">Poker</option>
+                            <option value="https://aaronrs2002.github.io/craps/?">Craps</option>
+                            <option value="https://aaronrs2002.github.io/javascript-slot-machine/index.html?">Slots
+                            </option>
+                            <option value="https://aaronrs2002.github.io/word-game/?">WordFun</option>
+                        </select></div>
+                    <div class="col-md-6"><select class="form-control" id="gameTheme">
+                            <option value="spacelab">Game theme: Spacelab</option>
+                            <option value="united">Game theme: United</option>
+                            <option value="slate">Game theme: Slate</option>
+                            <option value="cerulean">Game theme: Cerulean</option>
+                            <option value="darkly">Game theme: Darkly</option>
+                            <option value="litera">Game theme: Litera</option>
+                            <option value="materia">Game theme: Materia</option>
+                            <option value="sandstone">Game theme: Sandstone</option>
+                            <option value="superhero">Game theme: Superhero</option>
+                            <option value="cosmo">Game theme: Cosmo</option>
+                            <option value="flatly">Game theme: Flatly</option>
+                            <option value="lumen">Game theme: Lumen</option>
+                            <option value="minty">Game theme: Minty</option>
+                            <option value="simplex">Game theme: Simplex</option>
+                            <option value="solar">Game theme: Solar</option>
+                            <option value="cyborg">Game theme: Cyborg</option>
+                            <option value="journal">Game theme: Journal</option>
+                            <option value="lux">Game theme: Lux</option>
+                            <option value="pulse">Game theme: Pulse</option>
+                            <option value="sketchy">Game theme: Sketchy</option>
+                            <option value="yeti">Game theme: Yeti</option>
+                        </select></div>
+                </div><button type="button" class="btn btn-secondary btn-block">Calendar</button>
+            </div>
+            <div class="col-md-3">
+                <div>
+
+                    <div class="input-group"><input type="text" class="form-control" id="on YouTube"
+                            placeholder="Search on YouTube"><span class="input-group-btn"><button
+                                class="btn btn-dark"></button>
+                            <i class="fab fa-youtube"></i></button></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--start modile visible-->
+        <div class="row mobileVisible">
+            <div class="col-md-12"><input type="text" id="mobileLinks" class="form-control"
+                    placeholder="Search Links"><button type="button" class="btn btn-secondary btn-block">News</button>
+            </div>
+        </div>
+        <!--start main content-->
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group" data-links="1">
+                </div>
+            </div>
+            <div class="col-md-6 d-none d-sm-none d-md-block"><input type="text" id="filterLinks" class="form-control"
+                    placeholder="Search Links">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group mb-3"><input type="text" class="form-control" name="YouTubeQuery"
+                                    placeholder="Update video list"><span class="input-group-btn"><button
+                                        class="btn btn-dark" type="button" onClick="searchYouTube()"
+                                        id="search-button"><i class="fas fa-search"></i></button></span></div>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="videoindexParent">
+                                <!-- <li data-num="0" class="sliderIndex"></li>
+                                <li data-num="1" class="sliderIndex"></li>
+                                <li data-num="2" class="sliderIndex"></li>
+                                <li data-num="3" class="sliderIndex"></li>
+                                <li data-num="4" class="sliderIndex"></li>
+                                <li data-num="5" class="sliderIndex"></li>
+                                <li data-num="6" class="sliderIndex"></li>
+                                <li data-num="7" class="sliderIndex"></li>
+                                <li data-num="8" class="sliderIndex"></li>
+                                <li data-num="9" class="sliderIndex"></li>
+                                <li data-num="10" class="sliderIndex"></li>
+                                <li data-num="11" class="sliderIndex"></li>
+                                <li data-num="12" class="sliderIndex"></li>
+                                <li data-num="13" class="sliderIndex"></li>
+                                <li data-num="14" class="sliderIndex"></li>
+                                <li data-num="15" class="sliderIndex"></li>
+                                <li data-num="16" class="sliderIndex"></li>
+                                <li data-num="17" class="sliderIndex"></li>
+                                <li data-num="18" class="sliderIndex"></li>
+                                <li data-num="19" class="sliderIndex"></li>
+                                <li data-num="20" class="sliderIndex"></li>
+                                <li data-num="21" class="sliderIndex"></li>
+                                <li data-num="22" class="sliderIndex"></li>
+                                <li data-num="23" class="sliderIndex"></li>
+                                <li data-num="24" class="sliderIndex"></li>
+                                <li data-num="25" class="sliderIndex"></li>
+                                <li data-num="26" class="sliderIndex active"></li>
+                                <li data-num="27" class="sliderIndex"></li>
+                                <li data-num="28" class="sliderIndex"></li>
+                                <li data-num="29" class="sliderIndex"></li>
+                                <li data-num="30" class="sliderIndex"></li>
+                                <li data-num="31" class="sliderIndex"></li>
+                                <li data-num="32" class="sliderIndex"></li>
+                                <li data-num="33" class="sliderIndex"></li>
+                                <li data-num="34" class="sliderIndex"></li>
+                                <li data-num="35" class="sliderIndex"></li>
+                                <li data-num="36" class="sliderIndex"></li>
+                                <li data-num="37" class="sliderIndex"></li>
+                                <li data-num="38" class="sliderIndex"></li>
+                                <li data-num="39" class="sliderIndex"></li>
+                                <li data-num="40" class="sliderIndex"></li>
+                                <li data-num="41" class="sliderIndex"></li>
+                                <li data-num="42" class="sliderIndex"></li>
+                                <li data-num="43" class="sliderIndex"></li>
+                                <li data-num="44" class="sliderIndex"></li>
+                                <li data-num="45" class="sliderIndex"></li>
+                                <li data-num="46" class="sliderIndex"></li>
+                                <li data-num="47" class="sliderIndex"></li>-->
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="">
+
+
+                                <iframe class="youTubeIframe" src="https://www.youtube.com/embed/"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12"><small>Carousel Controls</small></div>
+                        <div class="btn-group col-md-12" role="group"><button type="button" class="btn btn-secondary"
+                                onClick="previousVideo()">Previous</button><button type="button"
+                                class="btn btn-secondary" onClick="toggleTimer('manual');"
+                                data-bt="pause">Pause</button><button type="button" class="btn btn-secondary hide"
+                                onClick="toggleTimer('auto');" data-bt="play">Play</button><button type="button"
+                                class="btn btn-secondary" onClick="nextVideo()">Next</button></div>
+                    </div>
+                </div>
+                <div class="form-group"><select class="form-control" id="rssOptions">
+                        <option value="https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss">aaronrs2002</option>
+                        <option value="https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss">Our Basset
+                            Hounds
+                        </option>
+                        <option value="https://www.flagstaff.az.gov/RSSFeed.aspx?ModID=76&amp;CID=All-0">Flagstaff News
+                        </option>
+                        <option value="https://lexfridman.com/feed/podcast/">Lex Fridman</option>
+                        <option value="https://www.scottsdaleaz.gov/rss/city-news-rss-feed.rss">Scottsdale City News
+                        </option>
+                        <option value="https://www.scottsdaleaz.gov/rss/police-news-rss-feed.rss">Scottsdale City Police
+                            News
+                            Feed</option>
+                        <option value="https://www.scottsdaleaz.gov/rss/public-notice-rss-feed.rss">Scottsdale City
+                            Public
+                            Notices</option>
+                        <option value="https://timestormcomm.com/feed/">TimeStorm Communications</option>
+                        <option value="https://www.dallasobserver.com/dallas/Rss.xml">Dallas Observer</option>
+                        <option value="https://www.phoenixnewtimes.com/phoenix/Rss.xml?id=ThingsToDo">Phoenix New Times
+                            -Things
+                            to Do</option>
+                        <option value="https://www.allsides.com/rss/blog">AllSides</option>
+                        <option value="http://feeds.feedburner.com/TheAdamCarollaShow">Adam Carolla Show</option>
+                        <option value="https://www.neonmuseum.org/the-collection/blog?format=feed&amp;type=rss">
+                            Neonmuseum
+                            Las
+                            Vegas</option>
+                        <option value="https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss">
+                            the-missing-details
+                        </option>
+                        <option value="https://web-presence-news.blogspot.com/feeds/posts/default?alt=rss">web-presence
+                        </option>
+                        <option value="http://news.yahoo.com/rss">YAHOO</option>
+                        <option value="https://blog.bootswatch.com/rss/">Bootswatch</option>
+                        <option value="https://www.realclearpolitics.com/index.xml">Real clear politics</option>
+                    </select>
+                    <div id="newsResponse"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="list-group" data-links="2"></div>
+            </div>
+        </div>
+        <!--end main content-->
+
+        <div class="row well mb-5">
+            <div class="col-md-3">
+                <div>
+                    <form>
+                        <div class="input-group"><input type="text" class="form-control" id="Rotten Tomatoes"
+                                placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button
+                                    class="btn btn-dark" type="submit"> <i
+                                        class="fab fa-searchengin"></i></button></span></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6"> <button class="btn btn-block btn-secondary" id="toggledEdit">Admin <i
+                        class="fas fa-lock"></i></button></div>
+            <div class="col-md-3">
+                <div>
+                    <form>
+                        <div class="input-group"><input type="text" class="form-control" id="Wikipedia"
+                                placeholder="Search Wikipedia"><span class="input-group-btn"><button
+                                    class="btn btn-dark" type="submit"> <i
+                                        class="fab fa-wikipedia-w"></i></button></span></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        L<!--start admin panel-->
+
+        <div class="hide">
+            <div id="editOptions" class="row">
+                <div class="col-md-12">
+                    <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group"><select class="form-control" id="theme">
+                            <option>Select Design</option>
+                            <option value="original-option">original-option</option>
+                            <option value="dark-option">dark-option</option>
+                            <option value="pink-option">pink-option</option>
+                            <option value="orange-option">orange-option</option>
+                        </select></div>
+                </div>
+                <div class="col-md-4"><select class="form-control" id="linkEdit">
+                        <option value="editLink">Edit Link</option>
+                        <option value="deleteLink">Delete Link</option>
+                        <option value="addLink">Add Link</option>
+                    </select>
+                    <div class="form-group">
+                        <hr><select class="form-control" name="which-id">
+                            <option value="">Select a link</option>
+                            <option value="0">CommunityCrimeMap</option>
+                            <option value="1">THE FLIX</option>
+                            <option value="2">Hulu</option>
+                            <option value="3">Pandora</option>
+                            <option value="4">ChatGPT</option>
+                            <option value="5">Calorie Counter</option>
+                            <option value="6">Discord</option>
+                            <option value="7">web-presence.biz</option>
+                            <option value="8">Data Commons</option>
+                            <option value="9">Cognitive Reframing</option>
+                            <option value="10">Blogger</option>
+                            <option value="11">Amazon</option>
+                            <option value="12">Roku</option>
+                            <option value="13">IMDB</option>
+                            <option value="14">Instagram</option>
+                            <option value="15">Apple Music Station </option>
+                            <option value="16">Adam Carolla Podcast</option>
+                            <option value="17">MyChart</option>
+                            <option value="18">Yelp</option>
+                            <option value="19">Fandango</option>
+                            <option value="20">zillow</option>
+                            <option value="21">Social Media App</option>
+                            <option value="22">Wagner Portal</option>
+                            <option value="23">Wilson Fundraiser</option>
+                            <option value="24">Google Voice</option>
+                            <option value="25">Google Maps Contributions</option>
+                            <option value="26">gitHub</option>
+                            <option value="27">Frys Grocery</option>
+                            <option value="28">Dailywire</option>
+                            <option value="29">THE MOUNT</option>
+                            <option value="30">Nextdoor</option>
+                            <option value="31">City Data App</option>
+                            <option value="32">Consumer Reports</option>
+                            <option value="33">Pinterest</option>
+                            <option value="34">taskMaster</option>
+                            <option value="35">National Parks API</option>
+                        </select><input type="text" name="edit-name" class="form-control" placeholder="Edit Name"><input
+                            type="text" name="edit-url" class="form-control" placeholder="Edit URL"><button
+                            class="btn btn-primary btn-block">Edit Link</button>
+                    </div>
+                </div>
+                <div class="col-md-4"><select id="RssEdit" class="form-control">
+                        <option value="addRss">Add RSS Feed</option>
+                        <option value="deleteRss">Delete RSS Feed</option>
+                    </select>
+                    <div class="form-group">
+                        <hr><input type="text" name="addLinkName" class="form-control" placeholder="Add RSS Name"><input
+                            type="text" name="addLinkUrl" class="form-control" placeholder="Add RSS Link"><button
+                            class="btn btn-primary btn-block">Add Feed</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-5"><label>Logout: <strong> aaron@test.com </strong></label><button
+                        class="btn btn-danger btn-block">Logout</button></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="data/localData.js"></script>
+<script src="data/youTubeLoad.js"></script>
+
+<script src="js/functionality.js"></script>
+
+</html>
