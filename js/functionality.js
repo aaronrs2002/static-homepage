@@ -321,5 +321,55 @@ function changeFeed() {
         behavior: "smooth",
     });
 }
-
+/*
 changeFeed();
+*/
+
+
+/*start links*/
+
+let links = config.linkBackUp;
+if (localStorage.getItem("homePageLinks")) {
+    links = JSON.parse(localStorage.getItem("homePageLinks"));
+
+} else {
+    localStorage.setItem("homePageLinks", JSON.stringify(links));
+}
+let linksColOne = "";
+let linksColTwo = "";
+let howManyLinks = ((links.length) / 2);
+
+for (let i = 0; i < links.length; i++) {
+    if (i > howManyLinks) {
+        linksColOne = linksColOne + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${links[i].url}">${links[i].name}</a>`;
+    } else {
+        linksColTwo = linksColTwo + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${links[i].url}">${links[i].name}</a>`;
+    }
+}
+
+
+
+document.querySelector("[data-links='1']").innerHTML = linksColOne;
+document.querySelector("[data-links='2']").innerHTML = linksColTwo;
+
+function filterLinks() {
+
+
+    let stringQuery = document.querySelector("[name='filterLinks']").value.toLowerCase();
+
+    for (let i = 0; i < links.length; i++) {
+        if (links[i].name.toLowerCase().indexOf(stringQuery) === -1) {
+            if (document.querySelector("[data-iteration='" + i + "']")) {
+                document.querySelector("[data-iteration='" + i + "']").classList.add("hide");
+                console.log("hide: " + links[i].name)
+            }
+
+        } else {
+            if (document.querySelector(".hide[data-iteration='" + i + "']")) {
+                document.querySelector("[data-iteration='" + i + "']").classList.remove("hide");
+
+            }
+
+        }
+    }
+}

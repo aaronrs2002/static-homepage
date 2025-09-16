@@ -5,177 +5,148 @@ const config = {
     ytPlaylistId: "PL8JHEysB-dTgIqHV4mrx09Qcsc9lKoog0",
     linkBackUp: [
         {
-            id: 0,
-            name: "Recipe App",
-            url: "https://online-recipe-app.herokuapp.com/",
+            "name": "CommunityCrimeMap",
+            "url": "https://communitycrimemap.com/?address=Scottsdale,AZ"
         },
         {
-            id: 1,
-            name: "Yahoo",
-            url: "http://yahoo.com",
+            "name": "THE FLIX",
+            "url": "http://www.netflix.com/"
         },
         {
-            id: 2,
-            name: "Netflix",
-            url: "http://www.netflix.com/",
+            "name": "Hulu",
+            "url": "https://www.hulu.com/"
         },
         {
-            id: 3,
-            name: "Hulu",
-            url: "https://www.hulu.com/",
+            "name": "Pandora",
+            "url": "http://www.pandora.com/account/sign-in"
         },
         {
-            id: 4,
-            name: "Pandora",
-            url: "http://www.pandora.com/account/sign-in",
+            "name": "ChatGPT",
+            "url": "https://platform.openai.com/apps"
         },
         {
-            id: 5,
-            name: "Wells fargo",
-            url: "https://www.wellsfargo.com/",
+            "name": "Calorie Counter",
+            "url": " https://calories-in-calories-out.herokuapp.com/"
         },
         {
-            id: 6,
-            name: "Bing",
-            url: "http://www.bing.com/",
+            "name": "Discord",
+            "url": "https://discord.com/channels/1346549526881898506/1346549526881898508"
         },
         {
-            id: 7,
-            name: "Login Domain",
-            url:
-                "https://email.secureserver.net/login.php?domain=email.mechanized-aesthetics.net",
+            "name": "web-presence.biz",
+            "url": "https://web-presence.biz/?utm_medium=exclude&utm_source=exclude"
         },
         {
-            id: "8",
-            name: "web-presence.biz",
-            url: "https://mechanized-aesthetics.herokuapp.com/",
+            "name": "Data Commons",
+            "url": "https://datacommons.org/place/country/USA"
         },
         {
-            id: 9,
-            name: "The Old Reader",
-            url: "http://theoldreader.com/",
+            "name": "Cognitive Reframing",
+            "url": "https://aaronrs2002.github.io/cognitive-reframing/"
         },
         {
-            id: 10,
-            name: "Google Photos",
-            url: "https://photos.google.com/?tab=wq&pageId=none",
+            "name": "Blogger",
+            "url": "https://www.blogger.com/blogger.g?blogID=2216077295471992473#allposts"
         },
         {
-            id: 11,
-            name: "Blogger",
-            url:
-                "https://www.blogger.com/blogger.g?blogID=2216077295471992473#allposts",
+            "name": "Amazon",
+            "url": "http://www.amazon.com/?&tag=adamcarolla09-20&camp=15345&creative=331665&linkCode=ur1&adid=0BT66P4JXXXBHSC0K4YM&"
         },
         {
-            id: 12,
-            name: "Amazon",
-            url:
-                "http://www.amazon.com/?&tag=adamcarolla09-20&camp=15345&creative=331665&linkCode=ur1&adid=0BT66P4JXXXBHSC0K4YM&",
+            "name": "Roku",
+            "url": "https://therokuchannel.roku.com/"
         },
         {
-            id: 13,
-            name: "LinkedIn",
-            url: "https://www.linkedin.com/in/aaronrs2002",
+            "name": "IMDB",
+            "url": "http://www.imdb.com/"
         },
         {
-            id: 14,
-            name: "IMDB",
-            url: "http://www.imdb.com/",
+            "name": "Instagram",
+            "url": "http://www.instagram.com/"
         },
         {
-            id: 15,
-            name: "Instagram",
-            url: "http://www.instagram.com/",
+            "name": "Apple Music Station ",
+            "url": "https://music.apple.com/us/station/aaron-smiths-station/ra.u-654f9736bc502f591abb70ff757aa95f"
         },
         {
-            id: 16,
-            name: "Valley Metro",
-            url: "http://www.valleymetro.org/",
+            "name": "Adam Carolla Podcast",
+            "url": "http://adamcarolla.com/"
         },
         {
-            id: 17,
-            name: "Go Daddy",
-            url: "https://www.godaddy.com/",
+            "name": "MyChart",
+            "url": "https://mychart.honorhealth.com/MyChart/Authentication/Login"
         },
         {
-            id: 18,
-            name: "Adam Carolla Podcast",
-            url: "http://adamcarolla.com/",
+            "name": "Yelp",
+            "url": "http://www.yelp.com/"
         },
         {
-            id: "19",
-            name: "Mychart.honorhealth",
-            url: "https://mychart.honorhealth.com/",
+            "name": "Fandango",
+            "url": "http://www.fandango.com/85260_movietimes?q=85260"
         },
         {
-            id: 20,
-            name: "Yelp",
-            url: "http://www.yelp.com/",
+            "name": "zillow",
+            "url": "https://zillow.com"
         },
         {
-            id: 21,
-            name: "Fandango",
-            url: "http://www.fandango.com/85260_movietimes?q=85260",
+            "name": "Social Media App",
+            "url": "https://social-media-fun.herokuapp.com/"
         },
         {
-            id: "22",
-            name: "zillow",
-            url: "https://zillow.com",
+            "name": "Wagner Portal",
+            "url": "https://wagnerfinancial.securefilepro.com/connect/#/login"
         },
         {
-            id: "23",
-            name: "Pinterest",
-            url: "https://www.pinterest.com/aaronrs2002/boards/",
+            "name": "Wilson Fundraiser",
+            "url": "https://wilsonfundraiser.com/?utm_medium=exclude&utm_source=exclude"
         },
         {
-            id: "24",
-            name: "Wagner Portal",
-            url: "https://wagnerfinancial.securefilepro.com/connect/#/login",
+            "name": "Google Voice",
+            "url": "https://voice.google.com/u/0#inbox"
         },
         {
-            id: 25,
-            name: "Southwest Airlines",
-            url: "https://www.southwest.com/",
+            "name": "Google Maps Contributions",
+            "url": "https://www.google.com/maps/contrib/101380000475593513417/"
         },
         {
-            id: 26,
-            name: "Google Voice",
-            url: "https://voice.google.com/u/0#inbox",
+            "name": "gitHub",
+            "url": "https://github.com/aaronrs2002"
         },
         {
-            id: 27,
-            name: "Google Drive",
-            url: "https://drive.google.com/drive/my-drive",
+            "name": "Frys Grocery",
+            "url": "https://www.frysfood.com/d/grocery"
         },
         {
-            id: 28,
-            name: "Google Maps Contributions",
-            url: "https://www.google.com/maps/contrib/101380000475593513417/",
+            "name": "Dailywire",
+            "url": "https://www.dailywire.com/"
         },
         {
-            id: "29",
-            name: "gitHub",
-            url: "https://github.com/aaronrs2002",
+            "name": "THE MOUNT",
+            "url": "https://www.paramountplus.com/home/"
         },
         {
-            id: 30,
-            name: "Stand Up Live",
-            url: "https://phoenix.standuplive.com/",
+            "name": "Nextdoor",
+            "url": "https://nextdoor.com/login/"
         },
         {
-            id: 31,
-            name: "Tempe Improv",
-            url: "https://www.tempeimprov.com/",
+            "name": "City Data App",
+            "url": "https://mechanized-aesthetics.net/TEST/react-city-data/?exclude=true&"
         },
         {
-            id: 32,
-            name: "House of Comedy",
-            url: "https://az.houseofcomedy.net/",
+            "name": "Consumer Reports",
+            "url": "https://www.consumerreports.org"
         },
         {
-            id: 33,
-            name: "Nextdoor",
-            url: "https://nextdoor.com/login/",
+            "name": "Pinterest",
+            "url": "https://www.pinterest.com/"
+        },
+        {
+            "name": "taskMaster",
+            "url": "https://aaronrs2002.github.io/task-master/?exclude=true&"
+        },
+        {
+            "name": "National Parks API",
+            "url": "https://mechanized-aesthetics.net/TEST/nps-api/"
         }
     ]
     ,
@@ -183,7 +154,7 @@ const config = {
     rssBackUp: [
 
         {
-            name: "aaronrs002",
+            name: "aaronrs2002",
             link: "https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss",
         },
         {
