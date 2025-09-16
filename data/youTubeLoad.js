@@ -433,7 +433,7 @@ function setActiveVideo(whichVideo, autoManual) {
 async function loadYouTubePlaylist() {
 
     try {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${config.ytPlaylistId}&mine=true&key=${config.ytInfo}`);
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${config.ytPlaylistId}&mine=true&maxResults=50&key=${config.ytInfo}`);
         result = await response.json();
 
 

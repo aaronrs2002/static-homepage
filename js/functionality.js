@@ -136,7 +136,7 @@ async function searchYouTube() {
 
 
     try {
-        const response = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=" +
+        const response = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=" +
             search +
             "&type=video&key=" +
             config.ytInfo);
