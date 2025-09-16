@@ -178,6 +178,31 @@ const config = {
             url: "https://nextdoor.com/login/",
         }
     ]
+    ,
+    RSSget: "https://mechanized-aesthetics.net/php-relays/getrss.php?q=",
+    rssBackUp: [
+
+        {
+            name: "aaronrs002",
+            link: "https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss",
+        },
+        {
+            name: "Our Basset Hounds",
+            link: "https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss",
+        },
+        {
+            name: "Dallas Observer",
+            link: "https://www.dallasobserver.com/dallas/Rss.xml",
+        },
+        {
+            name: "New Times Phoenix",
+            link: "https://www.phoenixnewtimes.com/phoenix/Rss.xml?id=ThingsToDo",
+        },
+        {
+            name: "Missing Details",
+            link: "https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss",
+        },
+    ]
 
 
 };

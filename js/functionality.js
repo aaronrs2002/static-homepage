@@ -1,6 +1,7 @@
 /*start weather api*/
 
 
+
 async function fetchWWeather() {
 
 
@@ -228,4 +229,97 @@ async function searchYouTube() {
               setActiveVideo(data.items[0].id.videoId);
           });*/
 }
-//requestData();
+
+
+/*start RSS module*/
+
+let rssListHTML = [];
+
+for (let i = 0; i < config.rssBackUp.length; i++) {
+    rssListHTML = rssListHTML + `<option value="${config.rssBackUp[i].link}">${config.rssBackUp[i].name}</option>`;
+}
+
+
+document.querySelector("#rssOptions").innerHTML = rssListHTML;
+
+
+
+/*
+class NewsFeed extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      feed: "",
+      value: "AZ Central",
+      selected: 0,
+    };
+    this.getRssFeed = this.getRssFeed.bind(this);
+    this.changeFeed = this.changeFeed.bind(this);
+  }*/
+let feed = "";
+let value = "AZ Central";
+let selected = 0;
+
+async function getRssFeed(whatFeed) {
+    /* fetch(
+       RSSget + whatFeed
+     )
+       .then((res) => res.text())
+       .then(
+         (result) => {
+           this.setState({
+             isLoaded: true,
+             feed: result,
+           });
+         },
+         // Note: it's important to handle errors here
+         // instead of a catch() block so that we don't swallow
+         // exceptions from actual bugs in components.
+         (error) => {
+           this.setState({
+             isLoaded: true,
+             error,
+           });
+         }
+       );*/
+
+    try {
+        const response = await fetch(config.RSSget + whatFeed);
+        result = await response.text();
+
+        document.getElementById("newsResponse").innerHTML = result;
+
+
+
+
+    } catch (error) {
+        console.log("Error: " + error);
+        // buildList(JSON.parse(localStorage.getItem("result")), localStorage.getItem("stateSelected"));
+        return false;
+    }
+
+}
+
+
+function changeFeed() {
+
+    const feedChoice = document.getElementById("rssOptions").value;
+    getRssFeed(feedChoice);
+
+    const feedOptions = config.rssBackUp;
+    for (let i = 0; i < feedOptions.length; i++) {
+        if (feedChoice === feedOptions[i].link) {
+            localStorage.setItem("rssName", feedOptions[i].name);
+            localStorage.setItem("rssLink", feedOptions[i].link);
+        }
+    }
+
+
+    document.getElementById("newsResponse").scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+    });
+}
+
+changeFeed();
