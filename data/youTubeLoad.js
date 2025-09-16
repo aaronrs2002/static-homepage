@@ -383,9 +383,9 @@ async function loadYouTubePlaylist() {
 
 }
 
-let url = window.location;
-url = url.toString();
-if (url.indexOf("3000") !== -1) {
+
+
+if (window.location.toString().indexOf("3000") !== -1) {
     result = backUpYtIds;
     console.log("we are not calling youtube")
     let videoIndexStr = "";

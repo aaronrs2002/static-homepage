@@ -10,9 +10,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/brands.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/solid.css" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS-->
+    <link href="https://bootswatch.com/5/spacelab/bootstrap.css" rel="stylesheet" id="themedStyle">
+    <link rel="stylesheet" href="https://aaronrs2002.github.io/black-jack/css/animate.min.css" />
+    <link href="https://aaronrs2002.github.io/black-jack/css/shared.css" rel="stylesheet">
+    <link href="https://aaronrs2002.github.io/black-jack/css/style.css" rel="stylesheet">
 
     <link href="css/style.css" rel="stylesheet">
 
@@ -64,80 +66,15 @@
 
         <!--end weather panel-->
 
-        <div class="row well">
-            <div class="col-md-3">
-                <div>
-                    <form>
-                        <div class="input-group"><input type="text" class="form-control" id="Google"
-                                placeholder="Search Google"><span class="input-group-btn"><button class="btn btn-dark"
-                                    type="submit"> <i class="fab fa-google"></i></button></span></div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6"><select class="form-control" id="gameSelection">
-                            <option>Games</option>
-                            <option value="https://aaronrs2002.github.io/black-jack/?">21</option>
-                            <option value="https://aaronrs2002.github.io/texas-holdem/?">Poker</option>
-                            <option value="https://aaronrs2002.github.io/craps/?">Craps</option>
-                            <option value="https://aaronrs2002.github.io/javascript-slot-machine/index.html?">Slots
-                            </option>
-                            <option value="https://aaronrs2002.github.io/word-game/?">WordFun</option>
-                        </select></div>
-                    <div class="col-md-6"><select class="form-control" id="gameTheme">
-                            <option value="spacelab">Game theme: Spacelab</option>
-                            <option value="united">Game theme: United</option>
-                            <option value="slate">Game theme: Slate</option>
-                            <option value="cerulean">Game theme: Cerulean</option>
-                            <option value="darkly">Game theme: Darkly</option>
-                            <option value="litera">Game theme: Litera</option>
-                            <option value="materia">Game theme: Materia</option>
-                            <option value="sandstone">Game theme: Sandstone</option>
-                            <option value="superhero">Game theme: Superhero</option>
-                            <option value="cosmo">Game theme: Cosmo</option>
-                            <option value="flatly">Game theme: Flatly</option>
-                            <option value="lumen">Game theme: Lumen</option>
-                            <option value="minty">Game theme: Minty</option>
-                            <option value="simplex">Game theme: Simplex</option>
-                            <option value="solar">Game theme: Solar</option>
-                            <option value="cyborg">Game theme: Cyborg</option>
-                            <option value="journal">Game theme: Journal</option>
-                            <option value="lux">Game theme: Lux</option>
-                            <option value="pulse">Game theme: Pulse</option>
-                            <option value="sketchy">Game theme: Sketchy</option>
-                            <option value="yeti">Game theme: Yeti</option>
-                        </select></div>
-                </div><button type="button" class="btn btn-secondary btn-block">Calendar</button>
-            </div>
-            <div class="col-md-3">
-                <div>
 
-                    <div class="input-group"><input type="text" class="form-control" id="on YouTube"
-                            placeholder="Search on YouTube"><span class="input-group-btn"><button
-                                class="btn btn-dark"></button>
-                            <i class="fab fa-youtube"></i></button></span>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!--start modile visible-->
-        <div class="row mobileVisible">
-            <div class="col-md-12"><input type="text" id="mobileLinks" class="form-control"
-                    placeholder="Search Links"><button type="button" class="btn btn-secondary btn-block">News</button>
-            </div>
-        </div>
-        <!--start main content-->
 
         <div class="row">
             <div class="col-md-3">
                 <div class="list-group" data-links="1">
                 </div>
             </div>
-            <div class="col-md-6 d-none d-sm-none d-md-block"><input type="text" onKeyUp="filterLinks()"
-                    name="filterLinks" class="form-control" placeholder="Search Links">
+            <div class="col-md-6"><input type="text" onKeyUp="filterLinks()" name="filterLinks" class="form-control"
+                    placeholder="Search Links">
                 <div>
                     <div class="row">
                         <div class="col-md-12">
@@ -227,7 +164,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-6"> <button class="btn btn-block btn-secondary" id="toggledEdit">Admin <i
+            <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" id="toggledEdit">Admin <i
                         class="fas fa-lock"></i></button></div>
             <div class="col-md-3">
                 <div>
@@ -240,6 +177,7 @@
                 </div>
             </div>
         </div>
+
         <!--start admin panel-->
 
         <div class="hide">
@@ -322,10 +260,26 @@
             </div>
         </div>
     </div>
+    <div class="hide alert fadeInUp" role="alert" id="globalAlert"></div>
+    <footer class="footer mt-auto py-3 animated fadeInUp">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="btn-group block my-2" role="group" id="gameLinks"></div>
+                </div>
+                <div class="col-md-2 my-2"> <select class="form-control" onChange="changeTheme()" id="themes"></select>
+                </div>
+                <div class="col-md-4" id="socialList">
+                </div>
+                <div class="col-md-2 my-3" id="year" data-test="test"></div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="data/localData.js"></script>
 <script src="data/youTubeLoad.js"></script>
 
 <script src="js/functionality.js"></script>
+<script src="https://aaronrs2002.github.io/black-jack/js/footer.js"></script>
 
 </html>
