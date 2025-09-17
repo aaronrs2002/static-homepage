@@ -255,7 +255,7 @@ let selected = 0;
 
 async function getRssFeed(whatFeed) {
 
-
+    console.log("whatfeed: " + whatFeed);
     try {
         const response = await fetch(config.RSSget + whatFeed);
         result = await response.text();
@@ -295,7 +295,7 @@ function changeFeed() {
     });
 }
 /**/
-changeFeed();
+
 
 
 
@@ -597,3 +597,5 @@ function updateRssList() {
     document.querySelector("[name='addRssUrl']").value = "";
 
 }
+
+changeFeed();
