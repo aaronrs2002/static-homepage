@@ -340,3 +340,15 @@ function filterLinks() {
         }
     }
 }
+
+
+/*start custom search module*/
+let customSearchArr = [{ siteName: "RottenTomatoes", queryStr: "https://www.rottentomatoes.com/search?search=" }, { siteName: "wikiPedia", queryStr: "https://en.wikipedia.org/wiki/" }];
+
+
+function customSearch(num) {
+    let searchQuery = document.querySelector("[name='" + customSearchArr[num].siteName + "']").value;
+
+    window.location = customSearchArr[num].queryStr + searchQuery;
+    document.querySelector("[name='" + customSearchArr[num].siteName + "']").value = "";
+}

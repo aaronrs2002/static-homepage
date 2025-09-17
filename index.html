@@ -156,31 +156,35 @@
         <div class="row well mb-5">
             <div class="col-md-3">
                 <div>
-                    <form>
-                        <div class="input-group"><input type="text" class="form-control" id="Rotten Tomatoes"
-                                placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button
-                                    class="btn btn-dark" type="submit"> <i
-                                        class="fab fa-searchengin"></i></button></span></div>
-                    </form>
+
+                    <div class="input-group"><input type="text" class="form-control" name="RottenTomatoes"
+                            placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button
+                                class="btn btn-dark" onClick="customSearch(0)"> <i
+                                    class="fab fa-searchengin"></i></button></span></div>
+
                 </div>
             </div>
-            <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" id="toggledEdit">Admin <i
-                        class="fas fa-lock"></i></button></div>
+            <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" data-toggle=""
+                    onClick="toggle('admin')">Admin <i class="fas fa-lock"></i></button>
+
+
+                <button class="btn btn-block btn-secondary py-2 hide" data-toggle="admin" onClick="toggle('')">Close
+                    Admin Panel <i class="fas fa-lock"></i></button>
+            </div>
             <div class="col-md-3">
                 <div>
-                    <form>
-                        <div class="input-group"><input type="text" class="form-control" id="Wikipedia"
-                                placeholder="Search Wikipedia"><span class="input-group-btn"><button
-                                    class="btn btn-dark" type="submit"> <i
-                                        class="fab fa-wikipedia-w"></i></button></span></div>
-                    </form>
+
+                    <div class="input-group"><input type="text" class="form-control" name="wikiPedia"
+                            placeholder="Search Wikipedia"><span class="input-group-btn"><button class="btn btn-dark"
+                                onClick="customSearch(1)"> <i class="fab fa-wikipedia-w"></i></button></span></div>
+
                 </div>
             </div>
         </div>
 
         <!--start admin panel-->
 
-        <div class="hide">
+        <div class="hide" data-toggle="admin">
             <div id="editOptions" class="row">
                 <div class="col-md-12">
                     <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
