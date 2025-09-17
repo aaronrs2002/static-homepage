@@ -246,14 +246,7 @@ async function searchYouTube() {
 
 /*start RSS module*/
 
-let rssListHTML = [];
 
-for (let i = 0; i < config.rssBackUp.length; i++) {
-    rssListHTML = rssListHTML + `<option value="${config.rssBackUp[i].link}">${config.rssBackUp[i].name}</option>`;
-}
-
-
-document.querySelector("#rssOptions").innerHTML = rssListHTML;
 
 
 let feed = "";
@@ -301,8 +294,8 @@ function changeFeed() {
         behavior: "smooth",
     });
 }
-/*
-changeFeed();*/
+/**/
+changeFeed();
 
 
 
@@ -388,6 +381,8 @@ function customSearch(num) {
 
 
 function updateLink() {
+    document.querySelector("[name='linkName']").classList.remove("error");
+    document.querySelector("[name='linkUrl']").classList.remove("error");
 
     let links = config.linkBackUp;
     if (localStorage.getItem("homePageLinks")) {
@@ -491,5 +486,114 @@ function updateCrudFunc() {
 
             break;
     }
+
+}
+
+
+/*start rss cms*/
+
+function updateRssFunc() {
+    let whichFunc = document.querySelector("[name='rssEdit']").value;
+
+    switch (whichFunc) {
+        case "addRss":
+            if (document.querySelector(".hide[name='addRssName']")) {
+                document.querySelector("[name='addRssName']").classList.remove("hide");
+            }
+            if (document.querySelector(".hide[name='addRssUrl']")) {
+                document.querySelector("[name='addRssUrl']").classList.remove("hide");
+            }
+            document.querySelector("[name='rssListTarget']").classList.add("hide");
+            document.getElementById("rssUpdateBt").innerHTML = "Add Feed";
+            break;
+
+        case "deleteRss":
+            document.querySelector("[name='rssListTarget']").classList.remove("hide");
+            document.getElementById("rssUpdateBt").innerHTML = "Delete Feed";
+            document.querySelector("[name='addRssName']").classList.add("hide");
+            document.querySelector("[name='addRssUrl']").classList.add("hide");
+            break;
+
+    }
+}
+
+
+function buildRssList() {
+    console.log("BUILDING RSS LIST  !")
+    let rssLinks = config.rssBackUp;
+    if (localStorage.getItem("rssLinks")) {
+        rssLinks = JSON.parse(localStorage.getItem("rssLinks"));
+    } else {
+        localStorage.setItem("rsseLinks", JSON.stringify(rssLinks));
+    }
+    let rssLinkStr = "";
+    let rssListHTML = "";
+    for (let i = 0; i < rssLinks.length; i++) {
+        rssLinkStr = rssLinkStr + "<option value='" + i + "' >" + rssLinks[i].name + "</option>";
+        rssListHTML = rssListHTML + `<option value="${rssLinks[i].link}">${rssLinks[i].name}</option>`;
+    }
+    document.querySelector("[name='rssListTarget']").innerHTML = rssLinkStr;
+    document.querySelector("#rssOptions").innerHTML = rssListHTML;
+
+}
+buildRssList();
+function updateRssList() {
+    document.querySelector("[name='addRssName']").classList.remove("error");
+    document.querySelector("[name='addRssUrl']").classList.remove("error");
+    let rssLinks = config.rssBackUp;
+    let rssName = document.querySelector("[name='addRssName']").value;
+    let rssUrl = document.querySelector("[name='addRssUrl']").value;
+
+    if (localStorage.getItem("rssLinks")) {
+        rssLinks = JSON.parse(localStorage.getItem("rssLinks"));
+    } else {
+        localStorage.setItem("rssLinks", JSON.stringify(rssLinks));
+    }
+
+    let whichFunc = document.querySelector("[name='rssEdit']").value;
+
+    if (whichFunc !== "deleteRss") {
+        if (rssName === "") {
+            globalAlert("alert-danger", "What's the name of the RSSS feed?");
+            document.querySelector("[name='addRssName']").classList.add("error");
+            return false;
+        }
+
+        if (rssUrl === "") {
+            globalAlert("alert-danger", "What's the url of the feed?");
+            document.querySelector("[name='addRssName']").classList.add("error");
+            return false;
+        }
+    }
+    console.log("whichFunc: " + whichFunc);
+
+    switch (whichFunc) {
+        case "addRss":
+
+            rssLinks.push({
+                name: rssName,
+                link: rssUrl,
+            });
+            globalAlert("alert-success", "RSS Feed Added");
+            break;
+
+        case "deleteRss":
+
+            let rssStrTemp = [];
+
+            for (let i = 0; i < rssLinks.length; i++) {
+                if (i !== Number(document.querySelector("[name='rssListTarget']").value)) {
+                    rssStrTemp.push(rssLinks[i]);
+                }
+            }
+            rssLinks = rssStrTemp;
+            globalAlert("alert-success", "RSS Feed Deleted");
+            break;
+
+    }
+    localStorage.setItem("rssLinks", JSON.stringify(rssLinks));
+    buildRssList();
+    document.querySelector("[name='addRssName']").value = "";
+    document.querySelector("[name='addRssUrl']").value = "";
 
 }
