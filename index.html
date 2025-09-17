@@ -189,68 +189,29 @@
                 <div class="col-md-12">
                     <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group"><select class="form-control" id="theme">
-                            <option>Select Design</option>
-                            <option value="original-option">original-option</option>
-                            <option value="dark-option">dark-option</option>
-                            <option value="pink-option">pink-option</option>
-                            <option value="orange-option">orange-option</option>
-                        </select></div>
-                </div>
-                <div class="col-md-4"><select class="form-control" id="linkEdit">
+
+                <div class="col-md-6"><select class="form-control" onChange="updateCrudFunc()" name="linkEdit">
                         <option value="editLink">Edit Link</option>
                         <option value="deleteLink">Delete Link</option>
                         <option value="addLink">Add Link</option>
                     </select>
                     <div class="form-group">
-                        <hr><select class="form-control" name="which-id">
-                            <option value="">Select a link</option>
-                            <option value="0">CommunityCrimeMap</option>
-                            <option value="1">THE FLIX</option>
-                            <option value="2">Hulu</option>
-                            <option value="3">Pandora</option>
-                            <option value="4">ChatGPT</option>
-                            <option value="5">Calorie Counter</option>
-                            <option value="6">Discord</option>
-                            <option value="7">web-presence.biz</option>
-                            <option value="8">Data Commons</option>
-                            <option value="9">Cognitive Reframing</option>
-                            <option value="10">Blogger</option>
-                            <option value="11">Amazon</option>
-                            <option value="12">Roku</option>
-                            <option value="13">IMDB</option>
-                            <option value="14">Instagram</option>
-                            <option value="15">Apple Music Station </option>
-                            <option value="16">Adam Carolla Podcast</option>
-                            <option value="17">MyChart</option>
-                            <option value="18">Yelp</option>
-                            <option value="19">Fandango</option>
-                            <option value="20">zillow</option>
-                            <option value="21">Social Media App</option>
-                            <option value="22">Wagner Portal</option>
-                            <option value="23">Wilson Fundraiser</option>
-                            <option value="24">Google Voice</option>
-                            <option value="25">Google Maps Contributions</option>
-                            <option value="26">gitHub</option>
-                            <option value="27">Frys Grocery</option>
-                            <option value="28">Dailywire</option>
-                            <option value="29">THE MOUNT</option>
-                            <option value="30">Nextdoor</option>
-                            <option value="31">City Data App</option>
-                            <option value="32">Consumer Reports</option>
-                            <option value="33">Pinterest</option>
-                            <option value="34">taskMaster</option>
-                            <option value="35">National Parks API</option>
-                        </select><input type="text" name="edit-name" class="form-control" placeholder="Edit Name"><input
-                            type="text" name="edit-url" class="form-control" placeholder="Edit URL"><button
-                            class="btn btn-primary btn-block">Edit Link</button>
+                        <hr><select class="form-control" name="linkListTarget">
+
+                        </select>
+                        <input type="text" name="linkName" class="form-control" placeholder="Edit Name">
+                        <input type="text" name="linkUrl" class="form-control" placeholder="Edit URL">
+                        <button class="btn btn-primary btn-block py-2" id="btFunc" onClick="updateLink()">Edit
+                            Link</button>
                     </div>
                 </div>
-                <div class="col-md-4"><select id="RssEdit" class="form-control">
+                <div class="col-md-6">
+
+                    <select name="RssEdit" class="form-control">
                         <option value="addRss">Add RSS Feed</option>
                         <option value="deleteRss">Delete RSS Feed</option>
                     </select>
+
                     <div class="form-group">
                         <hr><input type="text" name="addLinkName" class="form-control" placeholder="Add RSS Name"><input
                             type="text" name="addLinkUrl" class="form-control" placeholder="Add RSS Link"><button
@@ -258,10 +219,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 mb-5"><label>Logout: <strong> aaron@test.com </strong></label><button
-                        class="btn btn-danger btn-block">Logout</button></div>
-            </div>
+
         </div>
     </div>
     <div class="hide alert fadeInUp" role="alert" id="globalAlert"></div>

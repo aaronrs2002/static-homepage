@@ -102,24 +102,37 @@ const BuildWeather = async () => {
 
 /*end weather api*/
 
-/*start links */
-let right = "";
-let left = "";
+/*start links 
+function buildLinks() {
+    let links = config.linkBackUp;
+    if (localStorage.getItem("homePageLinks")){
 
-for (let i = 0; i < config.linkBackUp.length; i++) {
-
-    if (i < 18) {
-        left = left + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${config.linkBackUp[i].url}">${config.linkBackUp[i].name}</a>`;
-    } else {
-        right = right + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${config.linkBackUp[i].url}">${config.linkBackUp[i].name}</a>`;
     }
-    document.querySelector("[data-links='1']").innerHTML = left;
-    document.querySelector("[data-links='2']").innerHTML = right;
+
+    document.querySelector("[data-links='1']").innerHTML = "";
+    document.querySelector("[data-links='2']").innerHTML = "";
+    let right = "";
+    let left = "";
+
+    for (let i = 0; i < config.linkBackUp.length; i++) {
+
+        if (i < 18) {
+            left = left + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${config.linkBackUp[i].url}">${config.linkBackUp[i].name}</a>`;
+        } else {
+            right = right + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${config.linkBackUp[i].url}">${config.linkBackUp[i].name}</a>`;
+        }
+        document.querySelector("[data-links='1']").innerHTML = left;
+        document.querySelector("[data-links='2']").innerHTML = right;
 
 
+
+    }
 
 }
 
+
+buildLinks()
+*/
 
 /*end links*/
 
@@ -288,38 +301,55 @@ function changeFeed() {
         behavior: "smooth",
     });
 }
-/**/
-changeFeed();
+/*
+changeFeed();*/
 
 
 
 /*start links*/
+function buildLinks() {
+    let links = config.linkBackUp;
+    if (localStorage.getItem("homePageLinks")) {
+        links = JSON.parse(localStorage.getItem("homePageLinks"));
 
-let links = config.linkBackUp;
-if (localStorage.getItem("homePageLinks")) {
-    links = JSON.parse(localStorage.getItem("homePageLinks"));
-
-} else {
-    localStorage.setItem("homePageLinks", JSON.stringify(links));
-}
-let linksColOne = "";
-let linksColTwo = "";
-let howManyLinks = ((links.length) / 2);
-
-for (let i = 0; i < links.length; i++) {
-    if (i > howManyLinks) {
-        linksColOne = linksColOne + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${links[i].url}">${links[i].name}</a>`;
     } else {
-        linksColTwo = linksColTwo + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${links[i].url}">${links[i].name}</a>`;
+        localStorage.setItem("homePageLinks", JSON.stringify(links));
     }
+    let linksColOne = "";
+    let linksColTwo = "";
+    let howManyLinks = ((links.length) / 2);
+    let linkNamesStr = "";
+
+    for (let i = 0; i < links.length; i++) {
+        if (i > howManyLinks) {
+            linksColOne = linksColOne + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${links[i].url}">${links[i].name}</a>`;
+        } else {
+            linksColTwo = linksColTwo + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${links[i].url}">${links[i].name}</a>`;
+        }
+
+        linkNamesStr = linkNamesStr + "<option value='" + i + "'>" + links[i].name + "</option>";
+
+
+
+
+    }
+    document.querySelector("[name='linkListTarget']").innerHTML = linkNamesStr;
+
+
+    document.querySelector("[data-links='1']").innerHTML = linksColOne;
+    document.querySelector("[data-links='2']").innerHTML = linksColTwo;
 }
-
-
-
-document.querySelector("[data-links='1']").innerHTML = linksColOne;
-document.querySelector("[data-links='2']").innerHTML = linksColTwo;
+buildLinks()
 
 function filterLinks() {
+
+    let links = config.linkBackUp;
+    if (localStorage.getItem("homePageLinks")) {
+        links = JSON.parse(localStorage.getItem("homePageLinks"));
+
+    } else {
+        localStorage.setItem("homePageLinks", JSON.stringify(links));
+    }
 
 
     let stringQuery = document.querySelector("[name='filterLinks']").value.toLowerCase();
@@ -351,4 +381,115 @@ function customSearch(num) {
 
     window.location = customSearchArr[num].queryStr + searchQuery;
     document.querySelector("[name='" + customSearchArr[num].siteName + "']").value = "";
+}
+
+
+/*start link CMS */
+
+
+function updateLink() {
+
+    let links = config.linkBackUp;
+    if (localStorage.getItem("homePageLinks")) {
+        links = JSON.parse(localStorage.getItem("homePageLinks"));
+
+    } else {
+        localStorage.setItem("homePageLinks", JSON.stringify(links));
+    }
+    let crudFunct = document.querySelector("[name='linkEdit']").value;
+    let selectedLink = document.querySelector("[name='linkListTarget']").value;
+    let linkName = document.querySelector("[name='linkName']").value;
+    let linkUrl = document.querySelector("[name='linkUrl']").value;
+
+    if (linkName === "" && crudFunct !== "deleteLink") {
+        document.querySelector("[name='linkName']").classList.add("error");
+        globalAlert("alert-danger", "What's the name of the link?");
+        return false;
+
+    }
+
+    if (linkUrl === "" && crudFunct !== "deleteLink") {
+
+        document.querySelector("[name='linkUrl']").classList.add("error");
+        globalAlert("alert-danger", "What's the url?");
+        return false;
+    }
+
+    console.log("what fubnction:" + crudFunct);
+
+    switch (crudFunct) {
+        case "editLink":
+            links[selectedLink].name = linkName;
+            links[selectedLink].url = linkUrl;
+            globalAlert("alert-success", "Links Edited Successfully");
+
+            break;
+        case "addLink":
+            links.push({ name: linkName, url: linkUrl });
+            globalAlert("alert-success", "Links Added Successfully");
+
+            break;
+        case "deleteLink":
+            let tempLinks = [];
+            for (let i = 0; i < links.length; i++) {
+                if (i !== Number(selectedLink)) {
+                    tempLinks.push(links[i])
+                }
+            }
+            links = tempLinks;
+            globalAlert("alert-success", "Links Deleted Successfully");
+
+            break;
+    }
+
+    localStorage.setItem("homePageLinks", JSON.stringify(links));
+    document.querySelector("[name='linkName']").value = "";
+    document.querySelector("[name='linkUrl']").value = "";
+    buildLinks();
+
+}
+
+function updateCrudFunc() {
+    let crudFunct = document.querySelector("[name='linkEdit']").value;
+
+
+    switch (crudFunct) {
+        case "editLink":
+            document.getElementById("btFunc").innerHTML = "Update Link Name and URL";
+            document.querySelector("[name='linkName']").setAttribute("placeholder", " Edit Name");
+            document.querySelector("[name='linkUrl']").setAttribute("placeholder", " Edit Url");
+
+            if (document.querySelector(".hide[name='linkName']")) {
+                document.querySelector(".hide[name='linkName']").classList.remove("hide");
+            }
+            if (document.querySelector(".hide[name='linkUrl']")) {
+                document.querySelector(".hide[name='linkUrl']").classList.remove("hide");
+            }
+            if (document.querySelector(".hide[name='linkListTarget']")) {
+                document.querySelector("[name='linkListTarget']").classList.remove("hide");
+            }
+            break;
+        case "addLink":
+            document.getElementById("btFunc").innerHTML = "Add a Name and URL";
+            document.querySelector("[name='linkName']").setAttribute("placeholder", " Add Name");
+            document.querySelector("[name='linkUrl']").setAttribute("placeholder", "Add Url");
+            document.querySelector("[name='linkListTarget']").classList.add("hide");
+            if (document.querySelector(".hide[name='linkName']")) {
+                document.querySelector(".hide[name='linkName']").classList.remove("hide");
+            }
+            if (document.querySelector(".hide[name='linkUrl']")) {
+                document.querySelector(".hide[name='linkUrl']").classList.remove("hide");
+            }
+            break;
+        case "deleteLink":
+            document.getElementById("btFunc").innerHTML = "Delete Link";
+            document.querySelector("[name='linkName']").classList.add("hide");
+            document.querySelector("[name='linkUrl']").classList.add("hide");
+            if (document.querySelector(".hide[name='linkListTarget']")) {
+                document.querySelector("[name='linkListTarget']").classList.remove("hide");
+            }
+
+            break;
+    }
+
 }
