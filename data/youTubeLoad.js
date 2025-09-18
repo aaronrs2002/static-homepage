@@ -385,7 +385,7 @@ async function loadYouTubePlaylist() {
 
 
 
-if (window.location.toString().indexOf("3000") !== -1 || !youTube) {
+if (window.location.toString().indexOf("3000") !== -1) {
     result = backUpYtIds;
     console.log("we are not calling youtube")
     let videoIndexStr = "";
