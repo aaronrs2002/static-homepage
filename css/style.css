@@ -21,6 +21,12 @@ h5 {
 
 }
 
+#activeBlogDescriptionMobile img,
+#activeBlogDescription img {
+    width: 100% !important;
+    height: auto !important;
+
+}
 
 /*start here
 footer {
