@@ -183,88 +183,89 @@
                 </div>
 
             </div>
+
+            <div class="col-md-3">
+                <div class="list-group" data-links="2"></div>
+            </div>
+
+
         </div>
-        <div class="col-md-3">
-            <div class="list-group" data-links="2"></div>
-        </div>
+        <div class="row well mb-5">
+            <div class="col-md-3">
+                <div>
+
+                    <div class="input-group"><input type="text" class="form-control" name="RottenTomatoes"
+                            placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button
+                                class="btn btn-dark" onClick="customSearch(0)"> <i
+                                    class="fab fa-searchengin"></i></button></span></div>
+
+                </div>
+            </div>
+            <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" data-toggle=""
+                    onClick="toggle('admin')">Admin <i class="fas fa-lock"></i></button>
 
 
-    </div>
-    <div class="row well mb-5">
-        <div class="col-md-3">
-            <div>
+                <button class="btn btn-block btn-secondary py-2 hide" data-toggle="admin" onClick="toggle('')">Close
+                    Admin Panel <i class="fas fa-lock"></i></button>
+            </div>
+            <div class="col-md-3">
+                <div>
 
-                <div class="input-group"><input type="text" class="form-control" name="RottenTomatoes"
-                        placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button class="btn btn-dark"
-                            onClick="customSearch(0)"> <i class="fab fa-searchengin"></i></button></span></div>
+                    <div class="input-group"><input type="text" class="form-control" name="wikiPedia"
+                            placeholder="Search Wikipedia"><span class="input-group-btn"><button class="btn btn-dark"
+                                onClick="customSearch(1)"> <i class="fab fa-wikipedia-w"></i></button></span></div>
 
+                </div>
             </div>
         </div>
-        <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" data-toggle=""
-                onClick="toggle('admin')">Admin <i class="fas fa-lock"></i></button>
+        <!--start admin panel-->
 
+        <div class="hide" data-toggle="admin">
+            <div id="editOptions" class="row">
+                <div class="col-md-12">
+                    <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
+                </div>
 
-            <button class="btn btn-block btn-secondary py-2 hide" data-toggle="admin" onClick="toggle('')">Close
-                Admin Panel <i class="fas fa-lock"></i></button>
-        </div>
-        <div class="col-md-3">
-            <div>
+                <div class="col-md-6"><select class="form-control" onChange="updateCrudFunc()" name="linkEdit">
+                        <option value="editLink">Edit Link</option>
+                        <option value="deleteLink">Delete Link</option>
+                        <option value="addLink">Add Link</option>
+                    </select>
+                    <div class="form-group">
+                        <hr /><select class="form-control" name="linkListTarget">
 
-                <div class="input-group"><input type="text" class="form-control" name="wikiPedia"
-                        placeholder="Search Wikipedia"><span class="input-group-btn"><button class="btn btn-dark"
-                            onClick="customSearch(1)"> <i class="fab fa-wikipedia-w"></i></button></span></div>
+                        </select>
+                        <input type="text" name="linkName" class="form-control" placeholder="Edit Name">
+                        <input type="text" name="linkUrl" class="form-control" placeholder="Edit URL">
+                        <button class="btn btn-primary btn-block py-2" id="btFunc" onClick="updateLink()">Edit
+                            Link</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
 
+                    <select name="rssEdit" class="form-control" onchange="updateRssFunc()">
+                        <option value="addRss">Add RSS Feed</option>
+                        <option value="deleteRss">Delete RSS Feed</option>
+                    </select>
+
+                    <div class="form-group">
+                        <hr /><select class="form-control hide" name="rssListTarget">
+
+                        </select>
+                        <input type="text" name="addRssName" class="form-control" placeholder="Add RSS Name">
+                        <input type="text" name="addRssUrl" class="form-control" placeholder="Add RSS Link">
+                        <button class="btn btn-primary btn-block py-2" onClick="updateRssList()" id="rssUpdateBt">Add
+                            Feed</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!--start admin panel-->
 
-    <div class="hide" data-toggle="admin">
-        <div id="editOptions" class="row">
+        </div>
+        <div class="row d-block d-sm-block d-md-none">
             <div class="col-md-12">
-                <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
-            </div>
-
-            <div class="col-md-6"><select class="form-control" onChange="updateCrudFunc()" name="linkEdit">
-                    <option value="editLink">Edit Link</option>
-                    <option value="deleteLink">Delete Link</option>
-                    <option value="addLink">Add Link</option>
-                </select>
                 <div class="form-group">
-                    <hr /><select class="form-control" name="linkListTarget">
-
-                    </select>
-                    <input type="text" name="linkName" class="form-control" placeholder="Edit Name">
-                    <input type="text" name="linkUrl" class="form-control" placeholder="Edit URL">
-                    <button class="btn btn-primary btn-block py-2" id="btFunc" onClick="updateLink()">Edit
-                        Link</button>
-                </div>
-            </div>
-            <div class="col-md-6">
-
-                <select name="rssEdit" class="form-control" onchange="updateRssFunc()">
-                    <option value="addRss">Add RSS Feed</option>
-                    <option value="deleteRss">Delete RSS Feed</option>
-                </select>
-
-                <div class="form-group">
-                    <hr /><select class="form-control hide" name="rssListTarget">
-
-                    </select>
-                    <input type="text" name="addRssName" class="form-control" placeholder="Add RSS Name">
-                    <input type="text" name="addRssUrl" class="form-control" placeholder="Add RSS Link">
-                    <button class="btn btn-primary btn-block py-2" onClick="updateRssList()" id="rssUpdateBt">Add
-                        Feed</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="row d-block d-sm-block d-md-none">
-        <div class="col-md-12">
-            <div class="form-group">
-                <select class="form-control" onChange="changeFeed(false,'mobile')" name="rssOptionsMobile">
-                    <!--
+                    <select class="form-control" onChange="changeFeed(false,'mobile')" name="rssOptionsMobile">
+                        <!--
                                             <option value="https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss">aaronrs2002</option>
                                             <option value="https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss">Our Basset
                                                 Hounds
@@ -299,11 +300,11 @@
                                             <option value="http://news.yahoo.com/rss">YAHOO</option>
                                             <option value="https://blog.bootswatch.com/rss/">Bootswatch</option>
                                             <option value="https://www.realclearpolitics.com/index.xml">Real clear politics</option>-->
-                </select>
-                <div id="newsResponseMobile"></div>
+                    </select>
+                    <div id="newsResponseMobile"></div>
+                </div>
             </div>
         </div>
-    </div>
 
     </div>
 
