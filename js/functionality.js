@@ -280,6 +280,8 @@ function changeFeed(onLoad) {
     if (onLoad) {
         if (localStorage.getItem("rssLink")) {
             feedChoice = localStorage.getItem("rssLink");
+
+            document.querySelector("option[value='" + feedChoice + "']").selected = true;
         }
     }
 
