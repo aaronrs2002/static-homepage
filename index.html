@@ -69,90 +69,97 @@
 
 
         <div class="row">
+            <div class="col-md-12"><input type="text" onKeyUp="filterLinks()" name="filterLinks" class="form-control"
+                    placeholder="Search Links">
+            </div>
+
             <div class="col-md-3">
                 <div class="list-group" data-links="1">
                 </div>
             </div>
-            <div class="col-md-6"><input type="text" onKeyUp="filterLinks()" name="filterLinks" class="form-control"
-                    placeholder="Search Links">
-                <div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="input-group mb-3"><input type="text" class="form-control" name="YouTubeQuery"
-                                    placeholder="Update video list"><span class="input-group-btn"><button
-                                        class="btn btn-dark" type="button" onClick="searchYouTube()"
-                                        id="search-button"><i class="fas fa-search"></i></button></span></div>
-                        </div>
-                        <div class="col-md-12">
-                            <ul class="videoindexParent"></ul>
-                        </div>
-                        <div class="col-md-12">
-                            <div>
 
-
-                                <iframe class="youTubeIframe" src="https://www.youtube.com/embed/"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-                            </div>
-                        </div>
-                        <div class="col-md-12"><small>Carousel Controls</small></div>
-                        <div class="btn-group col-md-12" role="group"><button type="button" class="btn btn-secondary"
-                                onClick="previousVideo()">Previous</button><button type="button"
-                                class="btn btn-secondary" onClick="toggleTimer('manual');"
-                                data-bt="pause">Pause</button><button type="button" class="btn btn-secondary hide"
-                                onClick="toggleTimer('auto');" data-bt="play">Play</button><button type="button"
-                                class="btn btn-secondary" onClick="nextVideo()">Next</button></div>
+            <div class="col-md-6 d-none d-sm-none d-md-none d-lg-block">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group mb-3"><input type="text" class="form-control" name="YouTubeQuery"
+                                placeholder="Update video list"><span class="input-group-btn"><button
+                                    class="btn btn-dark" type="button" onClick="searchYouTube()" id="search-button"><i
+                                        class="fas fa-search"></i></button></span></div>
                     </div>
+                    <div class="col-md-12">
+                        <ul class="videoindexParent"></ul>
+                    </div>
+                    <div class="col-md-12">
+                        <div>
+
+
+                            <iframe class="youTubeIframe" src="https://www.youtube.com/embed/"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-12"><small>Carousel Controls</small></div>
+                    <div class="col-md-12"></div>
+                    <div class="btn-group col-md-12" role="group"><button type="button" class="btn btn-secondary"
+                            onClick="previousVideo()">Previous</button><button type="button" class="btn btn-secondary"
+                            onClick="toggleTimer('manual');" data-bt="pause">Pause</button><button type="button"
+                            class="btn btn-secondary hide" onClick="toggleTimer('auto');"
+                            data-bt="play">Play</button><button type="button" class="btn btn-secondary"
+                            onClick="nextVideo()">Next</button></div>
                 </div>
-                <div class="form-group"><select class="form-control" onChange="changeFeed(false)" id="rssOptions">
-                        <!--
-                        <option value="https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss">aaronrs2002</option>
-                        <option value="https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss">Our Basset
-                            Hounds
-                        </option>
-                        <option value="https://www.flagstaff.az.gov/RSSFeed.aspx?ModID=76&amp;CID=All-0">Flagstaff News
-                        </option>
-                        <option value="https://lexfridman.com/feed/podcast/">Lex Fridman</option>
-                        <option value="https://www.scottsdaleaz.gov/rss/city-news-rss-feed.rss">Scottsdale City News
-                        </option>
-                        <option value="https://www.scottsdaleaz.gov/rss/police-news-rss-feed.rss">Scottsdale City Police
-                            News
-                            Feed</option>
-                        <option value="https://www.scottsdaleaz.gov/rss/public-notice-rss-feed.rss">Scottsdale City
-                            Public
-                            Notices</option>
-                        <option value="https://timestormcomm.com/feed/">TimeStorm Communications</option>
-                        <option value="https://www.dallasobserver.com/dallas/Rss.xml">Dallas Observer</option>
-                        <option value="https://www.phoenixnewtimes.com/phoenix/Rss.xml?id=ThingsToDo">Phoenix New Times
-                            -Things
-                            to Do</option>
-                        <option value="https://www.allsides.com/rss/blog">AllSides</option>
-                        <option value="http://feeds.feedburner.com/TheAdamCarollaShow">Adam Carolla Show</option>
-                        <option value="https://www.neonmuseum.org/the-collection/blog?format=feed&amp;type=rss">
-                            Neonmuseum
-                            Las
-                            Vegas</option>
-                        <option value="https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss">
-                            the-missing-details
-                        </option>
-                        <option value="https://web-presence-news.blogspot.com/feeds/posts/default?alt=rss">web-presence
-                        </option>
-                        <option value="http://news.yahoo.com/rss">YAHOO</option>
-                        <option value="https://blog.bootswatch.com/rss/">Bootswatch</option>
-                        <option value="https://www.realclearpolitics.com/index.xml">Real clear politics</option>-->
-                    </select>
-                    <div id="newsResponse"></div>
+
+                <div class="col-md-12">
+                    <div class="form-group"><select class="form-control" onChange="changeFeed(false, 'desktop')"
+                            name="rssOptions">
+                            <!--
+                                                    <option value="https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss">aaronrs2002</option>
+                                                    <option value="https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss">Our Basset
+                                                        Hounds
+                                                    </option>
+                                                    <option value="https://www.flagstaff.az.gov/RSSFeed.aspx?ModID=76&amp;CID=All-0">Flagstaff News
+                                                    </option>
+                                                    <option value="https://lexfridman.com/feed/podcast/">Lex Fridman</option>
+                                                    <option value="https://www.scottsdaleaz.gov/rss/city-news-rss-feed.rss">Scottsdale City News
+                                                    </option>
+                                                    <option value="https://www.scottsdaleaz.gov/rss/police-news-rss-feed.rss">Scottsdale City Police
+                                                        News
+                                                        Feed</option>
+                                                    <option value="https://www.scottsdaleaz.gov/rss/public-notice-rss-feed.rss">Scottsdale City
+                                                        Public
+                                                        Notices</option>
+                                                    <option value="https://timestormcomm.com/feed/">TimeStorm Communications</option>
+                                                    <option value="https://www.dallasobserver.com/dallas/Rss.xml">Dallas Observer</option>
+                                                    <option value="https://www.phoenixnewtimes.com/phoenix/Rss.xml?id=ThingsToDo">Phoenix New Times
+                                                        -Things
+                                                        to Do</option>
+                                                    <option value="https://www.allsides.com/rss/blog">AllSides</option>
+                                                    <option value="http://feeds.feedburner.com/TheAdamCarollaShow">Adam Carolla Show</option>
+                                                    <option value="https://www.neonmuseum.org/the-collection/blog?format=feed&amp;type=rss">
+                                                        Neonmuseum
+                                                        Las
+                                                        Vegas</option>
+                                                    <option value="https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss">
+                                                        the-missing-details
+                                                    </option>
+                                                    <option value="https://web-presence-news.blogspot.com/feeds/posts/default?alt=rss">web-presence
+                                                    </option>
+                                                    <option value="http://news.yahoo.com/rss">YAHOO</option>
+                                                    <option value="https://blog.bootswatch.com/rss/">Bootswatch</option>
+                                                    <option value="https://www.realclearpolitics.com/index.xml">Real clear politics</option>-->
+                        </select>
+                        <div id="newsResponse"></div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="list-group" data-links="2"></div>
             </div>
-        </div>
-        <!--end main content-->
 
+
+        </div>
         <div class="row well mb-5">
             <div class="col-md-3">
                 <div>
@@ -181,7 +188,6 @@
                 </div>
             </div>
         </div>
-
         <!--start admin panel-->
 
         <div class="hide" data-toggle="admin">
@@ -225,7 +231,57 @@
             </div>
 
         </div>
+        <div class="row d-block d-sm-block d-md-none">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <select class="form-control" onChange="changeFeed(false,'mobile')" name="rssOptionsMobile">
+                        <!--
+                                            <option value="https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss">aaronrs2002</option>
+                                            <option value="https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss">Our Basset
+                                                Hounds
+                                            </option>
+                                            <option value="https://www.flagstaff.az.gov/RSSFeed.aspx?ModID=76&amp;CID=All-0">Flagstaff News
+                                            </option>
+                                            <option value="https://lexfridman.com/feed/podcast/">Lex Fridman</option>
+                                            <option value="https://www.scottsdaleaz.gov/rss/city-news-rss-feed.rss">Scottsdale City News
+                                            </option>
+                                            <option value="https://www.scottsdaleaz.gov/rss/police-news-rss-feed.rss">Scottsdale City Police
+                                                News
+                                                Feed</option>
+                                            <option value="https://www.scottsdaleaz.gov/rss/public-notice-rss-feed.rss">Scottsdale City
+                                                Public
+                                                Notices</option>
+                                            <option value="https://timestormcomm.com/feed/">TimeStorm Communications</option>
+                                            <option value="https://www.dallasobserver.com/dallas/Rss.xml">Dallas Observer</option>
+                                            <option value="https://www.phoenixnewtimes.com/phoenix/Rss.xml?id=ThingsToDo">Phoenix New Times
+                                                -Things
+                                                to Do</option>
+                                            <option value="https://www.allsides.com/rss/blog">AllSides</option>
+                                            <option value="http://feeds.feedburner.com/TheAdamCarollaShow">Adam Carolla Show</option>
+                                            <option value="https://www.neonmuseum.org/the-collection/blog?format=feed&amp;type=rss">
+                                                Neonmuseum
+                                                Las
+                                                Vegas</option>
+                                            <option value="https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss">
+                                                the-missing-details
+                                            </option>
+                                            <option value="https://web-presence-news.blogspot.com/feeds/posts/default?alt=rss">web-presence
+                                            </option>
+                                            <option value="http://news.yahoo.com/rss">YAHOO</option>
+                                            <option value="https://blog.bootswatch.com/rss/">Bootswatch</option>
+                                            <option value="https://www.realclearpolitics.com/index.xml">Real clear politics</option>-->
+                    </select>
+                    <div id="newsResponseMobile"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <!--end main content-->
+
+
+
     <div class="hide alert fadeInUp" role="alert" id="globalAlert"></div>
     <footer class="footer mt-auto py-3 animated fadeInUp">
         <div class="container">

@@ -140,23 +140,18 @@ buildLinks()
 
 
 async function searchYouTube() {
-
     videoIdList = [];
     document.querySelector(".videoindexParent").innerHTML = "";
     let search = "";
     if (document.querySelector("[name='YouTubeQuery']").value !== "") {
         search = document.querySelector("[name='YouTubeQuery']").value;
     }
-
-
     try {
         const response = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=" +
             search +
             "&type=video&key=" +
             config.ytInfo);
         result = await response.json();
-
-
         console.log("JSON.stringify(result): " + JSON.stringify(result))
         let videoIndexStr = "";
 
@@ -168,28 +163,17 @@ async function searchYouTube() {
             }
             videoIndexStr = videoIndexStr + `<li data-num="${i}" class="sliderIndex ${selected}" onClick="setActiveVideo('${result.items[i].id.videoId}')"></li>`;
         }
-
-
         document.querySelector(".videoindexParent").innerHTML = videoIndexStr;
 
         function setActiveVideo(whichVideo) {
-
             console.log("(typeof whichVideo): " + (typeof whichVideo) + " - " + whichVideo);
-
             let activeVideo = videoIdList.indexOf(whichVideo);
-
             if (document.querySelector(".active[data-num]")) {
                 document.querySelector(".active[data-num]").classList.remove("active");
             }
-
             document.querySelector("[data-num='" + activeVideo + "']").classList.add("active");
-
-
             document.querySelector(".youTubeIframe").setAttribute("src", "https://www.youtube.com/embed/" + whichVideo)
-
-
         }
-
         setActiveVideo(result.items[0].id.videoId);
     } catch (error) {
         console.log("Error: " + error);
@@ -261,6 +245,7 @@ async function getRssFeed(whatFeed) {
         result = await response.text();
 
         document.getElementById("newsResponse").innerHTML = result;
+        document.getElementById("newsResponseMobile").innerHTML = result;
 
 
 
@@ -274,14 +259,26 @@ async function getRssFeed(whatFeed) {
 }
 
 
-function changeFeed(onLoad) {
+function changeFeed(onLoad, device) {
 
-    let feedChoice = document.getElementById("rssOptions").value;
+    let feedChoice = config.rssBackUp[0].link;
+    if (device === "desktop") {
+        feedChoice = document.querySelector("[name='rssOptions']").value;
+    } else {
+        feedChoice = document.querySelector("[name='rssOptionsMobile']").value;
+    }
+
+
+
+
     if (onLoad) {
         if (localStorage.getItem("rssLink")) {
             feedChoice = localStorage.getItem("rssLink");
 
-            document.querySelector("option[value='" + feedChoice + "']").selected = true;
+            document.querySelector("select[name='rssOptions'] option[value='" + feedChoice + "']").selected = true;
+            document.querySelector("select[name='rssOptionsMobile'] option[value='" + feedChoice + "']").selected = true;
+
+
         }
     }
 
@@ -291,15 +288,12 @@ function changeFeed(onLoad) {
     if (localStorage.getItem("rsseLinks")) {
         feedOptions = JSON.parse(localStorage.getItem("rsseLinks"));
     }
-
     for (let i = 0; i < feedOptions.length; i++) {
         if (feedChoice === feedOptions[i].link) {
             localStorage.setItem("rssName", feedOptions[i].name);
             localStorage.setItem("rssLink", feedOptions[i].link);
         }
     }
-
-
     document.getElementById("newsResponse").scroll({
         top: 0,
         left: 0,
@@ -316,7 +310,6 @@ function buildLinks() {
     let links = config.linkBackUp;
     if (localStorage.getItem("homePageLinks")) {
         links = JSON.parse(localStorage.getItem("homePageLinks"));
-
     } else {
         localStorage.setItem("homePageLinks", JSON.stringify(links));
     }
@@ -331,12 +324,7 @@ function buildLinks() {
         } else {
             linksColTwo = linksColTwo + `<a class="list-group-item" data-iteration="${i}" target="_self" href="${links[i].url}">${links[i].name}</a>`;
         }
-
         linkNamesStr = linkNamesStr + "<option value='" + i + "'>" + links[i].name + "</option>";
-
-
-
-
     }
     document.querySelector("[name='linkListTarget']").innerHTML = linkNamesStr;
 
@@ -545,7 +533,11 @@ function buildRssList() {
         rssListHTML = rssListHTML + `<option value="${rssLinks[i].link}">${rssLinks[i].name}</option>`;
     }
     document.querySelector("[name='rssListTarget']").innerHTML = rssLinkStr;
-    document.querySelector("#rssOptions").innerHTML = rssListHTML;
+
+    document.querySelector("[name='rssOptions']").innerHTML = rssListHTML;
+    document.querySelector("[name='rssOptionsMobile']").innerHTML = rssListHTML;
+
+
 
 }
 buildRssList();
