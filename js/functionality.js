@@ -1,3 +1,8 @@
+if (localStorage.getItem("ytkey")) {
+    config.ytInfo = localStorage.getItem("ytkey");
+}
+
+
 /*start weather api*/
 
 
