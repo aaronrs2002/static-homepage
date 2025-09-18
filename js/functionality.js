@@ -278,7 +278,7 @@ function changeFeed() {
 
     const feedChoice = document.getElementById("rssOptions").value;
     if (localStorage.getItem("rssLink")) {
-        feedChoice = JSON.parse(localStorage.getItem("rssLink"));
+        feedChoice = localStorage.getItem("rssLink");
     }
     getRssFeed(feedChoice);
 
