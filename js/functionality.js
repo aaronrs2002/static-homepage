@@ -424,7 +424,10 @@ function buildLinks() {
 
 
     document.querySelector("[data-links='1']").innerHTML = linksColOne;
-    document.querySelector("[data-links='2']").innerHTML = linksColTwo;
+    [].forEach.call(document.querySelectorAll(("[data-links='2']")), (e) => {
+        e.innerHTML = linksColTwo;
+    });
+
 }
 buildLinks()
 

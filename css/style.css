@@ -25,6 +25,7 @@ h5 {
 #activeBlogDescription img {
     width: 100% !important;
     height: auto !important;
+    padding: 1rem 0rem;
 
 }
 
