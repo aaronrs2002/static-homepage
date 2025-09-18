@@ -240,24 +240,114 @@ let feed = "";
 let value = "AZ Central";
 let selected = 0;
 
-async function getRssFeed(whatFeed) {
+function viewPosts(direction) {
+    console.log("viePosts: drection: " + direction);
 
-    console.log("whatfeed: " + whatFeed);
+    if (config[activeRestaurant].blogAddress.length === 0) {
+        document.getElementById("blogSection").classList.add("hide");
+        return false;
+    }
+    /*   [].forEach.call(document.querySelectorAll(".post[data-num]"), function (e) {
+         e.classList.add("hide");
+       });
+       if (document.querySelector(".fadeIn")) {
+         [].forEach.call(document.querySelectorAll(".fadein"), function (e) {
+           e.classList.remove("fadeIn");
+         });
+       }
+   */
+    const blogLength = blog.length;
+
+    //let visibleCards = activePost / blogLength;
+    if ((typeof direction) === "number") {
+        activePost = direction;
+    } else {
+
+        if (direction === "Next") {
+            activePost = activePost + 1;
+            if (activePost >= blogLength) {
+                activePost = 0;
+            }
+
+        } else {
+            activePost = activePost - 1;
+            if (activePost < 0) {
+                activePost = blogLength - 1;
+            }
+        }
+    }
+
+    document.querySelector("[data-activepost]").innerHTML = (Number(activePost) + 1);
+    document.querySelector("[data-blogmax").innerHTML = blogLength;
+
+    document.getElementById("activeBlogTitle").innerHTML = blog[activePost].title;
+    document.getElementById("activeBlogPubDate").innerHTML = blog[activePost].pubDate;
+    document.getElementById("activeBlogDescription").innerHTML = blog[activePost].description;
+    if (document.querySelector(".post[data-num='" + activePost + "']")) {
+        document
+            .querySelector(".post[data-num='" + activePost + "']")
+            .classList.remove("hide");
+        document
+            .querySelector(".post[data-num='" + activePost + "']")
+            .classList.add("fadeIn");
+    }
+}
+
+
+async function getBlog(url) {
     try {
-        const response = await fetch(config.RSSget + whatFeed);
-        result = await response.text();
+        const response = await fetch(url);
 
-        document.getElementById("newsResponse").innerHTML = result;
-        document.getElementById("newsResponseMobile").innerHTML = result;
-
-
-
+        if (!response.ok) {
+            throw new Error(`error: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
 
     } catch (error) {
         console.log("Error: " + error);
-        // buildList(JSON.parse(localStorage.getItem("result")), localStorage.getItem("stateSelected"));
-        return false;
+        throw error;
     }
+}
+
+
+async function getRssFeed(whatFeed) {
+
+
+
+    let phpRelayAddress = "https://mechanized-aesthetics.net/php-relays/any-restaurant-blog-address.php?q=";
+
+
+    try {
+
+        blog = await getBlog(phpRelayAddress + whatFeed);
+
+        console.log("We changed restaurants(typeof blog): " + (typeof blog));
+
+        viewPosts(0);
+
+
+    } catch (error) {
+        console.log("Error: " + error)
+    }
+
+
+    /* console.log("whatfeed: " + whatFeed);
+     try {
+         const response = await fetch(config.RSSget + whatFeed);
+         result = await response.text();
+ 
+         document.getElementById("newsResponse").innerHTML = result;
+         document.getElementById("newsResponseMobile").innerHTML = result;
+ 
+ 
+ 
+ 
+     } catch (error) {
+         console.log("Error: " + error);
+         // buildList(JSON.parse(localStorage.getItem("result")), localStorage.getItem("stateSelected"));
+         return false;
+     }*/
 
 }
 
@@ -297,11 +387,12 @@ function changeFeed(onLoad, device) {
             localStorage.setItem("rssLink", feedOptions[i].link);
         }
     }
+    /*
     document.getElementById("newsResponse").scroll({
         top: 0,
         left: 0,
         behavior: "smooth",
-    });
+    });*/
 }
 /**/
 
