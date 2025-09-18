@@ -277,7 +277,7 @@ async function getRssFeed(whatFeed) {
 function changeFeed() {
 
     let feedChoice = document.getElementById("rssOptions").value;
-    if (localStorage.getItem("rssLink")) {
+    if (localStorage.getItem("rssLink") && feedChoice === "") {
         feedChoice = localStorage.getItem("rssLink");
     }
     getRssFeed(feedChoice);
