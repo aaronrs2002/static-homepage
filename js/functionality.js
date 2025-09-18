@@ -366,7 +366,7 @@ function changeFeed(onLoad) {
             feedChoice = localStorage.getItem("rssLink");
 
             document.querySelector("select[name='rssOptions'] option[value='" + feedChoice + "']").selected = true;
-            document.querySelector("select[name='rssOptionsMobile'] option[value='" + feedChoice + "']").selected = true;
+
 
 
         }
@@ -629,8 +629,6 @@ function buildRssList() {
     document.querySelector("[name='rssListTarget']").innerHTML = rssLinkStr;
 
     document.querySelector("[name='rssOptions']").innerHTML = rssListHTML;
-    document.querySelector("[name='rssOptionsMobile']").innerHTML = rssListHTML;
-
 
 
 }
