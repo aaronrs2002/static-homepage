@@ -352,14 +352,11 @@ async function getRssFeed(whatFeed) {
 }
 
 
-function changeFeed(onLoad, device) {
+function changeFeed(onLoad) {
 
     let feedChoice = config.rssBackUp[0].link;
-    if (device === "desktop") {
-        feedChoice = document.querySelector("[name='rssOptions']").value;
-    } else {
-        feedChoice = document.querySelector("[name='rssOptionsMobile']").value;
-    }
+
+    feedChoice = document.querySelector("[name='rssOptions']").value;
 
 
 
