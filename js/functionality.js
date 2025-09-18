@@ -277,9 +277,16 @@ async function getRssFeed(whatFeed) {
 function changeFeed() {
 
     const feedChoice = document.getElementById("rssOptions").value;
+    if (localStorage.getItem("rssLink")) {
+        feedChoice = JSON.parse(localStorage.getItem("rssLink"));
+    }
     getRssFeed(feedChoice);
 
-    const feedOptions = config.rssBackUp;
+    let feedOptions = config.rssBackUp;
+    if (localStorage.getItem("rsseLinks")) {
+        feedOptions = JSON.parse(localStorage.getItem("rsseLinks"));
+    }
+
     for (let i = 0; i < feedOptions.length; i++) {
         if (feedChoice === feedOptions[i].link) {
             localStorage.setItem("rssName", feedOptions[i].name);
