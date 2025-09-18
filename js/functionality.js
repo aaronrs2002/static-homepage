@@ -274,12 +274,15 @@ async function getRssFeed(whatFeed) {
 }
 
 
-function changeFeed() {
+function changeFeed(onLoad) {
 
     let feedChoice = document.getElementById("rssOptions").value;
-    if (localStorage.getItem("rssLink") && feedChoice === "") {
-        feedChoice = localStorage.getItem("rssLink");
+    if (onLoad) {
+        if (localStorage.getItem("rssLink")) {
+            feedChoice = localStorage.getItem("rssLink");
+        }
     }
+
     getRssFeed(feedChoice);
 
     let feedOptions = config.rssBackUp;
@@ -605,4 +608,4 @@ function updateRssList() {
 
 }
 
-changeFeed();
+changeFeed(true);
