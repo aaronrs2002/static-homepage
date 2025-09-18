@@ -292,7 +292,7 @@ let backUpYtIds = {
 }
 
 
-let videoIdList = [];
+let videoIdList = ["bk-oTa4p4Fc", "CUpOMSJ1MdU", "jomAUAP976Y", "LDTXoJ5Xzrc", "64ftDUeUrQY", "gAIwWeFURPk", "QEJpZjg8GuA", "muOBrsm5DPc", "TTYnHr_-wcY", "iSQlLQqMP6I", "88bMVbx1dzM", "Kqx9blbYDB0", "a1UsUocKkgY", "ViTCO0mFkUo", "OqqKQP2sb4Q", "9thv_D5yoQw", "yACZtGCFvzU", "Ni82f1-cAXg", "ZdFFL9wNsaY", "gzLPa6NbcrE", "eOL2t7yyods", "Opxhh9Oh3rg", "S7TUe5w6RHo", "gJrSWXFXvlE", "awzOq_XKA_o", "dKcOTr7N4lE", "WdGQsBDSEpk", "qYJFkJXL2YY", "9hfqVrVIsyU", "J6yABdjYzLk", "5N_kWAxLPkM", "SAaVgY3twJs", "_TedFmvfCYo", "vtkwWe61uYw", "AdtLxlttrHg", "md75n8cyenA", "gh8HX4itF_w", "vmziIVL3jro", "P1ww1IXRfTA", "8Are9dDbW24", "1mFf5B5qEX4", "zEZ0DttCS9s", "zvrRCBlTmDE", "cLUD_NGE370", "WAzxy5yy6gs", "X73Eiad0JmM", "upJ43DEOg9c", "XDBWjfUgaR8"];
 let theInterval = null;
 let activeVideo = 0;
 
@@ -328,7 +328,7 @@ async function loadYouTubePlaylist() {
 
     try {
 
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${config.ytPlaylistId}&mine=true&maxResults=50&key=${config.ytInfo}`);
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${config.ytPlaylistId}&mine=true&maxResults=50&key=${config.ytInfo + config.ytInfoTwo}`);
         result = await response.json();
 
         let videoIndexStr = "";
@@ -385,7 +385,7 @@ async function loadYouTubePlaylist() {
 
 
 
-if (window.location.toString().indexOf("3000") !== -1) {
+if (window.location.toString().indexOf("3000") !== -1 || !youTube) {
     result = backUpYtIds;
     console.log("we are not calling youtube")
     let videoIndexStr = "";

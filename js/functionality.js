@@ -1,6 +1,4 @@
-if (localStorage.getItem("ytkey")) {
-    config.ytInfo = localStorage.getItem("ytkey");
-}
+
 
 
 /*start weather api*/
@@ -155,7 +153,7 @@ async function searchYouTube() {
         const response = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=" +
             search +
             "&type=video&key=" +
-            config.ytInfo);
+            config.ytInfo + config.ytInfoTwo);
         result = await response.json();
         console.log("JSON.stringify(result): " + JSON.stringify(result))
         let videoIndexStr = "";

@@ -1,8 +1,9 @@
 const config = {
 
     weatherInfo: "ecf25726505a27b754e557beb7068e6b",
-    ytInfo: "",
+    ytInfo: "AIzaSyCAvB5c983wQM",
     ytPlaylistId: "PL8JHEysB-dTgIqHV4mrx09Qcsc9lKoog0",
+    ytInfoTwo: "JBeXvcNWuRZ1uRCMt5g7A",
     linkBackUp: [
         {
             "name": "CommunityCrimeMap",
