@@ -242,20 +242,20 @@ let selected = 0;
 
 function viewPosts(direction) {
     console.log("viePosts: drection: " + direction);
-
-    if (config[activeRestaurant].blogAddress.length === 0) {
-        document.getElementById("blogSection").classList.add("hide");
-        return false;
-    }
-    /*   [].forEach.call(document.querySelectorAll(".post[data-num]"), function (e) {
-         e.classList.add("hide");
-       });
-       if (document.querySelector(".fadeIn")) {
-         [].forEach.call(document.querySelectorAll(".fadein"), function (e) {
-           e.classList.remove("fadeIn");
-         });
-       }
-   */
+    /* 
+     if (config[activeRestaurant].blogAddress.length === 0) {
+         document.getElementById("blogSection").classList.add("hide");
+         return false;
+     }
+    [].forEach.call(document.querySelectorAll(".post[data-num]"), function (e) {
+          e.classList.add("hide");
+        });
+        if (document.querySelector(".fadeIn")) {
+          [].forEach.call(document.querySelectorAll(".fadein"), function (e) {
+            e.classList.remove("fadeIn");
+          });
+        }
+    */
     const blogLength = blog.length;
 
     //let visibleCards = activePost / blogLength;
