@@ -295,17 +295,14 @@ let backUpYtIds = {
 let videoIdList = ["bk-oTa4p4Fc", "CUpOMSJ1MdU", "jomAUAP976Y", "LDTXoJ5Xzrc", "64ftDUeUrQY", "gAIwWeFURPk", "QEJpZjg8GuA", "muOBrsm5DPc", "TTYnHr_-wcY", "iSQlLQqMP6I", "88bMVbx1dzM", "Kqx9blbYDB0", "a1UsUocKkgY", "ViTCO0mFkUo", "OqqKQP2sb4Q", "9thv_D5yoQw", "yACZtGCFvzU", "Ni82f1-cAXg", "ZdFFL9wNsaY", "gzLPa6NbcrE", "eOL2t7yyods", "Opxhh9Oh3rg", "S7TUe5w6RHo", "gJrSWXFXvlE", "awzOq_XKA_o", "dKcOTr7N4lE", "WdGQsBDSEpk", "qYJFkJXL2YY", "9hfqVrVIsyU", "J6yABdjYzLk", "5N_kWAxLPkM", "SAaVgY3twJs", "_TedFmvfCYo", "vtkwWe61uYw", "AdtLxlttrHg", "md75n8cyenA", "gh8HX4itF_w", "vmziIVL3jro", "P1ww1IXRfTA", "8Are9dDbW24", "1mFf5B5qEX4", "zEZ0DttCS9s", "zvrRCBlTmDE", "cLUD_NGE370", "WAzxy5yy6gs", "X73Eiad0JmM", "upJ43DEOg9c", "XDBWjfUgaR8"];
 let theInterval = null;
 let activeVideo = 0;
-
+let runningCarousel = true;
 
 function setActiveVideo(whichVideo, autoManual) {
 
-    if (autoManual === "manual") {
-        toggleTimer("manual")
-    }
 
 
 
-    console.log("(typeof whichVideo): " + (typeof whichVideo) + " - " + whichVideo);
+    console.log("autoManual: " + autoManual + " (typeof whichVideo): " + (typeof whichVideo) + " - " + whichVideo);
 
     let activeVideo = videoIdList.indexOf(whichVideo);
 
@@ -322,6 +319,18 @@ function setActiveVideo(whichVideo, autoManual) {
     document.querySelector(".youTubeIframe").setAttribute("src", "https://www.youtube.com/embed/" + whichVideo)
 
 
+    if (autoManual === "manual") {
+        console.log("You said it was manual!")
+        toggleTimer("manual")
+    } else {
+        if (runningCarousel) {
+            toggleTimer("auto")
+            runningCarousel = false;
+        }
+
+
+    }
+    return false;
 }
 
 async function loadYouTubePlaylist() {
@@ -389,13 +398,13 @@ if (window.location.toString().indexOf("3000") !== -1) {
     result = backUpYtIds;
     console.log("we are not calling youtube")
     let videoIndexStr = "";
-    for (let i = 0; i < result.items.length; i++) {
-        videoIdList.push(result.items[i].snippet.resourceId.videoId);
+    for (let i = 0; i < videoIdList.length; i++) {
+        // videoIdList.push(result.items[i].snippet.resourceId.videoId);
         let selected = "";
         if (i === 0) {
             selected = "active";
         }
-        videoIndexStr = videoIndexStr + `<li data-num="${i}" class="sliderIndex ${selected}" onClick="setActiveVideo('${result.items[i].snippet.resourceId.videoId}', 'manual')"></li>`;
+        videoIndexStr = videoIndexStr + `<li data-num="${i}" class="sliderIndex ${selected}" onClick="setActiveVideo('${videoIdList[i]}', 'manual')"></li>`;
     }
     document.querySelector(".videoindexParent").innerHTML = videoIndexStr;
     setActiveVideo(videoIdList[0], "auto");
@@ -406,7 +415,7 @@ else {
 
 function toggleTimer(mode) {
 
-
+    console.log("Mode: " + mode);
 
     if (mode === "auto") {
         document.querySelector("[data-bt='pause']").classList.remove("hide");
@@ -414,15 +423,21 @@ function toggleTimer(mode) {
 
         theInterval = setInterval(startCalling, 5000);
         console.log("STARTED");
+        runningCarousel = true;
 
-    } else {
+        return false;
+
+    }
+
+    if (mode === "manual") {
         console.log("STOPPED");
         document.querySelector("[data-bt='pause']").classList.add("hide");
         document.querySelector("[data-bt='play']").classList.remove("hide");
 
         clearInterval(theInterval);
         theInterval = null;
-
+        runningCarousel = false;
+        return false;
     }
 
 
@@ -432,18 +447,28 @@ function toggleTimer(mode) {
 
 
 function startCalling(option) {
-    if (option === "manual") {
-        console.log("we stopped it");
-        return false;
-    } else {
-        console.log("we are moving on!")
+    if (option === undefined) {
+        option = "auto";
     }
+    activeVideo = Number(document.querySelector(".active.sliderIndex").dataset.num);
+
+    console.log("activeVideo: " + activeVideo + " (typeof activeVideo): " + (typeof activeVideo));
     let newActive = activeVideo + 1;
     if (newActive < 0) newActive = videoIdList.length;
     if (newActive > videoIdList.length - 1) newActive = 0;
 
     activeVideo = newActive;
-    setActiveVideo(videoIdList[activeVideo], "manual");
+
+    if (option === "manual") {
+        console.log("we stopped it");
+        setActiveVideo(videoIdList[activeVideo], "manual");
+        return false;
+    } else {
+        console.log("we are moving on!");
+        setActiveVideo(videoIdList[activeVideo], "auto");
+    }
+
+
 
 }
 

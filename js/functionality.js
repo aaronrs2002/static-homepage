@@ -445,7 +445,7 @@ function filterLinks() {
         if (links[i].name.toLowerCase().indexOf(stringQuery) === -1) {
             if (document.querySelector("[data-iteration='" + i + "']")) {
                 document.querySelector("[data-iteration='" + i + "']").classList.add("hide");
-                console.log("hide: " + links[i].name)
+
             }
 
         } else {
