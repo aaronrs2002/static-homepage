@@ -633,11 +633,9 @@ function buildRssList() {
     let feedChoice = rssLinks[0].link;
 
     if (localStorage.getItem("rssLink")) {
-        feedChoice = localStorage.getItem("rssLink");
 
-        document.querySelector("select[name='rssOptions'] option[value='" + feedChoice + "']").selected = true;
 
-        getRssFeed(feedChoice);
+        changeFeed(true);
 
     }
 
