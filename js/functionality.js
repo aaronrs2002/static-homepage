@@ -1,4 +1,30 @@
 
+function postDateTime() {
+    const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const now = new Date();
+
+    // Get date components
+    const year = now.getFullYear(); // 4-digit year (e.g., 2025)
+    const month = now.getMonth(); // Month (0-11, where 0 is January)
+    const dayOfMonth = now.getDate(); // Day of the month (1-31)
+    const dayOfWeek = now.getDay(); // Day of the week (0-6, where 0 is Sunday)
+
+    // Get time components
+    let amPm = "AM";
+    let hours = now.getHours(); // Hours (0-23)
+    if (hours > 12) {
+        hours = (hours - 12);
+        amPm = "PM";
+    }
+
+    const minutes = now.getMinutes(); // Minutes (0-59)
+
+    document.getElementById("dateTimeTarget").innerHTML = weekDays[dayOfWeek] + " - " + year + "/" + month + "/" + dayOfMonth + " " + hours + ":" + minutes + " " + amPm;
+}
+postDateTime();
+setInterval(() => {
+    postDateTime();
+}, 10000);
 
 
 /*start weather api*/
