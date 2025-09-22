@@ -380,7 +380,7 @@ function changeFeed(onLoad) {
     }
     for (let i = 0; i < feedOptions.length; i++) {
         if (feedChoice === feedOptions[i].link) {
-            localStorage.setItem("rssName", feedOptions[i].name);
+            // localStorage.setItem("rssName", feedOptions[i].name);
             localStorage.setItem("rssLink", feedOptions[i].link);
         }
     }
@@ -782,19 +782,16 @@ function handleOnSubmit(event, type, merge) {
 
 
             if (type === "json") {
-                /*start rss links*/
+                /*start ACTIVE rss links*/
+
                 try {
-                    if (homePageData.rssLinks) {
-                        localStorage.setItem("rssLinks", JSON.stringify(homePageData.rssLinks));
-                        buildRssList();
+                    if (homePageData.rssLink) {
+                        localStorage.setItem("rssLink", homePageData.rssLink)
                     }
-
-
                 } catch (error) {
-                    console.log("No rssLinks: " + error);
+                    console.log("No active rss link: " + error);
 
                 }
-
 
 
                 /*start links*/
@@ -811,15 +808,19 @@ function handleOnSubmit(event, type, merge) {
 
                 }
 
-
+                /*start rss links*/
                 try {
-                    if (homePageData.rssLink) {
-                        localStorage.setItem("rssLink", homePageData.rssLink)
+                    if (homePageData.rssLinks) {
+                        localStorage.setItem("rssLinks", JSON.stringify(homePageData.rssLinks));
+                        buildRssList();
                     }
+
+
                 } catch (error) {
-                    console.log("No active rss link: " + error);
+                    console.log("No rssLinks: " + error);
 
                 }
+
 
             }
             else {
