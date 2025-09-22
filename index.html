@@ -232,7 +232,7 @@
                     <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
                 </div>
 
-                <div class="col-md-6"><select class="form-control" onChange="updateCrudFunc()" name="linkEdit">
+                <div class="col-md-4"><select class="form-control" onChange="updateCrudFunc()" name="linkEdit">
                         <option value="editLink">Edit Link</option>
                         <option value="deleteLink">Delete Link</option>
                         <option value="addLink">Add Link</option>
@@ -247,7 +247,7 @@
                             Link</button>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
 
                     <select name="rssEdit" class="form-control" onchange="updateRssFunc()">
                         <option value="addRss">Add RSS Feed</option>
@@ -262,6 +262,13 @@
                         <input type="text" name="addRssUrl" class="form-control" placeholder="Add RSS Link">
                         <button class="btn btn-primary btn-block py-2" onClick="updateRssList()" id="rssUpdateBt">Add
                             Feed</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-grid gap-2  py-2">
+                        <button class="btn btn-light" onClick="javascript:downloadData();"><i
+                                class="fas fa-file-download"></i>
+                            Download</button>
                     </div>
                 </div>
             </div>

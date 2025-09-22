@@ -375,8 +375,8 @@ function changeFeed(onLoad) {
     getRssFeed(feedChoice);
 
     let feedOptions = config.rssBackUp;
-    if (localStorage.getItem("rsseLinks")) {
-        feedOptions = JSON.parse(localStorage.getItem("rsseLinks"));
+    if (localStorage.getItem("rssLinks")) {
+        feedOptions = JSON.parse(localStorage.getItem("rssLinks"));
     }
     for (let i = 0; i < feedOptions.length; i++) {
         if (feedChoice === feedOptions[i].link) {
@@ -618,7 +618,7 @@ function buildRssList() {
     if (localStorage.getItem("rssLinks")) {
         rssLinks = JSON.parse(localStorage.getItem("rssLinks"));
     } else {
-        localStorage.setItem("rsseLinks", JSON.stringify(rssLinks));
+        localStorage.setItem("rssLinks", JSON.stringify(rssLinks));
     }
     let rssLinkStr = "";
     let rssListHTML = "";
@@ -695,3 +695,31 @@ function updateRssList() {
 }
 
 changeFeed(true);
+
+/*Download data start*/
+
+
+function downloadData() {
+    let tempData = [];
+    if (localStorage.getItem("rssLinks")) {
+        tempData = { rssLinks: JSON.parse(localStorage.getItem("rssLinks")), homePageLinks: [] };
+    }
+
+    if (localStorage.getItem("homePageLinks")) {
+        //  tempData = [...tempData, { invoices: JSON.parse(localStorage.getItem("invoices")) }];
+        // tempData.push({ invoices: JSON.parse(localStorage.getItem("invoices")) });
+        tempData.homePageLinks = JSON.parse(localStorage.getItem("homePageLinks"));
+
+    }
+
+
+
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(tempData, null, 2)], {
+        type: 'application/json'
+    }));
+    a.setAttribute("download", "taskList.json");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
