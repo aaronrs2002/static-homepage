@@ -786,7 +786,8 @@ function handleOnSubmit(event, type, merge) {
 
                 try {
                     if (homePageData.rssLink) {
-                        localStorage.setItem("rssLink", homePageData.rssLink)
+                        localStorage.setItem("rssLink", homePageData.rssLink);
+                        console.logo("We saved : " + homePageData.rssLink + " to local storage");
                     }
                 } catch (error) {
                     console.log("No active rss link: " + error);
