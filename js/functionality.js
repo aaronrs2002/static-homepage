@@ -364,12 +364,14 @@ function changeFeed(onLoad) {
     if (onLoad) {
         if (localStorage.getItem("rssLink")) {
             feedChoice = localStorage.getItem("rssLink");
-
+            console.log("onload is true. we are loading: " + localStorage.getItem("rssLink"))
             document.querySelector("select[name='rssOptions'] option[value='" + feedChoice + "']").selected = true;
 
 
 
         }
+    } else {
+        console.log("onload is false. we are loading: " + feedChoice)
     }
 
     getRssFeed(feedChoice);
@@ -630,11 +632,11 @@ function buildRssList() {
 
     document.querySelector("[name='rssOptions']").innerHTML = rssListHTML;
 
-    let feedChoice = rssLinks[0].link;
+
 
     if (localStorage.getItem("rssLink")) {
 
-
+        console.log("loading:  " + localStorage.getItem("rssLink") + " to active feed.")
         changeFeed(true);
 
     }
