@@ -630,6 +630,19 @@ function buildRssList() {
 
     document.querySelector("[name='rssOptions']").innerHTML = rssListHTML;
 
+    let feedChoice = rssLinks[0].link;
+
+    if (localStorage.getItem("rssLink")) {
+        feedChoice = localStorage.getItem("rssLink");
+
+        document.querySelector("select[name='rssOptions'] option[value='" + feedChoice + "']").selected = true;
+
+        getRssFeed(feedChoice);
+
+    }
+
+
+
 
 }
 buildRssList();
@@ -702,7 +715,7 @@ changeFeed(true);
 function downloadData() {
     let tempData = [];
     if (localStorage.getItem("rssLinks")) {
-        tempData = { rssLinks: JSON.parse(localStorage.getItem("rssLinks")), homePageLinks: [] };
+        tempData = { rssLinks: JSON.parse(localStorage.getItem("rssLinks")), homePageLinks: [], rssLink: "" };
     }
 
     if (localStorage.getItem("homePageLinks")) {
@@ -711,15 +724,115 @@ function downloadData() {
         tempData.homePageLinks = JSON.parse(localStorage.getItem("homePageLinks"));
 
     }
-
+    if (localStorage.getItem("rssLink")) {
+        let activeRss = localStorage.getItem("rssLink");
+        console.log("JSON.stringify(tempData.rssLinks): " + JSON.stringify(tempData.rssLinks));
+        for (let i = 0; i < tempData.rssLinks.length; i++) {
+            if (tempData.rssLinks[i].link === activeRss) {
+                tempData.rssLink = localStorage.getItem("rssLink");
+                console.log("Active RSS: " + tempData.rssLink[i] + " - activeRss: " + activeRss)
+            } else {
+                console.log("Not active RSS: " + tempData.rssLink[i] + " activeRss: " + activeRss);
+            }
+        }
+    }
 
 
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([JSON.stringify(tempData, null, 2)], {
         type: 'application/json'
     }));
-    a.setAttribute("download", "taskList.json");
+    a.setAttribute("download", "homePageData.json");
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
 }
+
+
+
+//START FILE READER
+const fileReader = new FileReader();
+let file;
+function handleOnChange(event) {
+    if (event.target.files[0]) {
+        file = event.target.files[0];
+
+        document.querySelector("#fileUpload").classList.remove("hide");
+        // document.querySelector("#fileMerge").classList.remove("hide");
+        globalAlert("alert-warning", `File selected. Now, Select between \"updoading new data\", or merging with your current data.`);
+    } else {
+        document.querySelector("#fileUpload").classList.add("hide");
+        //document.querySelector("#fileMerge").classList.add("hide");
+    }
+};
+
+
+
+function handleOnSubmit(event, type, merge) {
+    event.preventDefault();
+    if (merge === "default") {
+        localStorage.setItem("taskList", "");
+    }
+    if (file) {
+        fileReader.onload = function (event) {
+            const tempObj = event.target.result;
+            let homePageData = JSON.parse(tempObj);
+
+
+
+
+            if (type === "json") {
+                /*start rss links*/
+                try {
+                    if (homePageData.rssLinks) {
+                        localStorage.setItem("rssLinks", JSON.stringify(homePageData.rssLinks));
+                        buildRssList();
+                    }
+
+
+                } catch (error) {
+                    console.log("No rssLinks: " + error);
+
+                }
+
+
+
+                /*start links*/
+
+                try {
+                    if (homePageData.homePageLinks) {
+                        localStorage.setItem("homePageLinks", JSON.stringify(homePageData.homePageLinks));
+                        buildLinks();
+                    }
+
+
+                } catch (error) {
+                    console.log("No rssLinks: " + error);
+
+                }
+
+
+                try {
+                    if (homePageData.rssLink) {
+                        localStorage.setItem("rssLink", homePageData.rssLink)
+                    }
+                } catch (error) {
+                    console.log("No active rss link: " + error);
+
+                }
+
+            }
+            else {
+                console.log("That wasn't json.")
+            }
+        };
+        fileReader.readAsText(file);
+    }
+    document.querySelector("input[type='file']").value = "";
+    document.querySelector("#fileUpload").classList.add("hide");
+    // document.querySelector("#fileMerge").classList.add("hide");
+    //toggleEdit();
+    globalAlert("alert-success", "Your file was uploaded. The next word should be one you uploaded.");
+
+
+};

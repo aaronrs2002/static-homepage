@@ -270,6 +270,24 @@
                                 class="fas fa-file-download"></i>
                             Download</button>
                     </div>
+                    <hr />
+                    <div class="d-grid gap-2">
+
+
+
+                        <label class="custom-file-upload btn btn-light">
+                            <input type="file" name="importFile" accept=".json"
+                                onChange="javascript:handleOnChange(event)" />
+                            <i class="fa fa-cloud-upload"></i> Select a "homePageData.json" file to upload
+                        </label>
+
+                    </div>
+                    <div class="d-grid gap-2  py-2">
+                        <button id="fileUpload" class="btn btn-danger hide"
+                            onClick="javascript:handleOnSubmit(event, 'json','default')"><i
+                                class="fas fa-file-upload"></i>
+                            Upload to browser storage</button>
+                    </div>
                 </div>
             </div>
 
