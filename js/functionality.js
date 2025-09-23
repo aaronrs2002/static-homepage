@@ -19,7 +19,7 @@ function postDateTime() {
 
     const minutes = now.getMinutes(); // Minutes (0-59)
 
-    document.getElementById("dateTimeTarget").innerHTML = weekDays[dayOfWeek] + " - " + year + "/" + month + "/" + dayOfMonth + " " + hours + ":" + minutes + " " + amPm;
+    document.getElementById("dateTimeTarget").innerHTML = weekDays[dayOfWeek] + " - " + year + "/" + (Number(month) + 1) + "/" + dayOfMonth + " " + hours + ":" + minutes + " " + amPm;
 }
 postDateTime();
 setInterval(() => {
