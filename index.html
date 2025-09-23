@@ -27,6 +27,41 @@
 
 <body>
     <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+
+
+
+                <!-- Modal -->
+                <div class="modal fade animated" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-modal="true" role="dialog">
+                    <div class="modal-dialog animated" data-modal="1">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Google Calendar</h1>
+                                <button type="button" class="btn-close" onClick="toggleModal()"></button>
+                            </div>
+                            <div class="modal-body">
+                                <iframe
+                                    src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FPhoenix&showPrint=0&src=YWFyb25yczIwMDJAZ21haWwuY29t&src=MnJlNTRxZWpocTI3OWE1cjhiYXMwdWEyNWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=bmZsXy1tLTAyODk2XyU0NGFsbGFzKyU0M293Ym95cyNzcG9ydHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230b8043&color=%234285f4&color=%23c0ca33&color=%23e67c73"
+                                    style="border:solid 1px #777; width:100%; min-height: 500px;" frameborder="0"
+                                    scrolling="no"></iframe>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-block py-2"
+                                    onClick="toggleModal()">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="d-none col-md-12 d-sm-none d-md-none d-lg-block">
                 <div class="row paddBottom">
@@ -63,6 +98,12 @@
                     </div>
                     <div class="col-md-3">
                         <div class="centerTxt" id="dateTimeTarget">No Time Yet</div>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-block py-2" onClick="toggleModal()">
+                            Calendar
+                        </button>
                     </div>
                 </div>
             </div>
@@ -320,7 +361,10 @@
             </div>
         </div>
     </footer>
+    <div class="modal-backdrop" style="display:none;"></div>
 </body>
+
+
 <script src="data/localData.js"></script>
 <script src="https://aaronrs2002.github.io/black-jack/js/footer.js"></script>
 <script src="data/youTubeLoad.js"></script>

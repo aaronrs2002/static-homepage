@@ -874,3 +874,22 @@ function handleOnSubmit(event, type, merge) {
 
 
 };
+
+
+function toggleModal() {
+    if (document.querySelector(".show#staticBackdrop")) {
+        document.querySelector("#staticBackdrop").classList.remove("show");
+        document.querySelector("#staticBackdrop").style.display = "none";
+        document.querySelector(".modal-backdrop").classList.remove("show");
+        document.querySelector(".modal-backdrop").classList.remove("fade");
+        document.querySelector(".modal-backdrop").style.display = "none";
+        document.querySelector("[data-modal='1']").classList.remove("bounceInDown");
+    } else {
+        document.querySelector(".modal-backdrop").style.display = "block";
+        document.querySelector("#staticBackdrop").style.display = "block";
+        document.querySelector("#staticBackdrop").classList.add("show");
+        document.querySelector("[data-modal='1']").classList.add("bounceInDown");
+        document.querySelector(".modal-backdrop").classList.add("show");
+        document.querySelector(".modal-backdrop").classList.add("fade");
+    }
+}

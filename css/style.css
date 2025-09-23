@@ -29,6 +29,10 @@ h5 {
 
 }
 
+.show {
+    display: block !important;
+}
+
 /*start here
 footer {
     box-shadow: 0 -4px 3px rgba(0, 0, 0, 0.075);
