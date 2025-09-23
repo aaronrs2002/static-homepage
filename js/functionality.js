@@ -204,6 +204,7 @@ async function searchYouTube() {
             document.querySelector(".youTubeIframe").setAttribute("src", "https://www.youtube.com/embed/" + whichVideo)
         }
         setActiveVideo(result.items[0].id.videoId);
+        document.querySelector("[name='YouTubeQuery']").value = "";
     } catch (error) {
         console.log("Error: " + error);
         // buildList(JSON.parse(localStorage.getItem("result")), localStorage.getItem("stateSelected"));
