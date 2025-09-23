@@ -473,13 +473,19 @@ function filterLinks() {
     for (let i = 0; i < links.length; i++) {
         if (links[i].name.toLowerCase().indexOf(stringQuery) === -1) {
             if (document.querySelector("[data-iteration='" + i + "']")) {
-                document.querySelector("[data-iteration='" + i + "']").classList.add("hide");
+                [].forEach.call(document.querySelectorAll("[data-iteration='" + i + "']"), (e) => {
+                    e.classList.add("hide");
+                })
+
 
             }
 
         } else {
             if (document.querySelector(".hide[data-iteration='" + i + "']")) {
-                document.querySelector("[data-iteration='" + i + "']").classList.remove("hide");
+                [].forEach.call(document.querySelectorAll(".hide[data-iteration='" + i + "']"), (e) => {
+                    e.classList.remove("hide");
+                });
+
 
             }
 
