@@ -94,10 +94,6 @@ const config = {
             "url": "https://social-media-fun.herokuapp.com/"
         },
         {
-            "name": "Wagner Portal",
-            "url": "https://wagnerfinancial.securefilepro.com/connect/#/login"
-        },
-        {
             "name": "Wilson Fundraiser",
             "url": "https://wilsonfundraiser.com/?utm_medium=exclude&utm_source=exclude"
         },
@@ -163,8 +159,8 @@ const config = {
             link: "https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss",
         },
         {
-            name: "Dallas Observer",
-            link: "https://www.dallasobserver.com/dallas/Rss.xml",
+            name: "Allsides",
+            link: "https://www.allsides.com/rss/blog",
         },
         {
             name: "New Times Phoenix",
@@ -173,6 +169,11 @@ const config = {
         {
             name: "Missing Details",
             link: "https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss",
+        },
+
+        {
+            name: "The Adam Carolla Show",
+            link: "http://feeds.feedburner.com/TheAdamCarollaShow",
         },
     ]
 
