@@ -12,12 +12,15 @@ function postDateTime() {
     // Get time components
     let amPm = "AM";
     let hours = now.getHours(); // Hours (0-23)
+    let minutes = now.getMinutes(); // Minutes (0-59)
     if (hours > 12) {
         hours = (hours - 12);
         amPm = "PM";
     }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
 
-    const minutes = now.getMinutes(); // Minutes (0-59)
 
     document.getElementById("dateTimeTarget").innerHTML = weekDays[dayOfWeek] + " - " + year + "/" + (Number(month) + 1) + "/" + dayOfMonth + " " + hours + ":" + minutes + " " + amPm;
 }

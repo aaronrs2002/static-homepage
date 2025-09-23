@@ -1,4 +1,4 @@
-let backUpYtIds = {
+/*let backUpYtIds = {
     "kind": "youtube#playlistItemListResponse",
     "etag": "DgtaAULg4XyktZqjI6mdwha1HM8",
     "items": [
@@ -289,7 +289,7 @@ let backUpYtIds = {
         "totalResults": 6,
         "resultsPerPage": 50
     }
-}
+}*/
 
 
 let videoIdList = ["bk-oTa4p4Fc", "CUpOMSJ1MdU", "jomAUAP976Y", "LDTXoJ5Xzrc", "64ftDUeUrQY", "gAIwWeFURPk", "QEJpZjg8GuA", "muOBrsm5DPc", "TTYnHr_-wcY", "iSQlLQqMP6I", "88bMVbx1dzM", "Kqx9blbYDB0", "a1UsUocKkgY", "ViTCO0mFkUo", "OqqKQP2sb4Q", "9thv_D5yoQw", "yACZtGCFvzU", "Ni82f1-cAXg", "ZdFFL9wNsaY", "gzLPa6NbcrE", "eOL2t7yyods", "Opxhh9Oh3rg", "S7TUe5w6RHo", "gJrSWXFXvlE", "awzOq_XKA_o", "dKcOTr7N4lE", "WdGQsBDSEpk", "qYJFkJXL2YY", "9hfqVrVIsyU", "J6yABdjYzLk", "5N_kWAxLPkM", "SAaVgY3twJs", "_TedFmvfCYo", "vtkwWe61uYw", "AdtLxlttrHg", "md75n8cyenA", "gh8HX4itF_w", "vmziIVL3jro", "P1ww1IXRfTA", "8Are9dDbW24", "1mFf5B5qEX4", "zEZ0DttCS9s", "zvrRCBlTmDE", "cLUD_NGE370", "WAzxy5yy6gs", "X73Eiad0JmM", "upJ43DEOg9c", "XDBWjfUgaR8"];
@@ -304,7 +304,7 @@ function setActiveVideo(whichVideo, autoManual) {
 
     console.log("autoManual: " + autoManual + " (typeof whichVideo): " + (typeof whichVideo) + " - " + whichVideo);
 
-    let activeVideo = videoIdList.indexOf(whichVideo);
+    activeVideo = videoIdList.indexOf(whichVideo);
 
     if (document.querySelector(".active[data-num]")) {
         document.querySelector(".active[data-num]").classList.remove("active");
@@ -341,7 +341,7 @@ async function loadYouTubePlaylist() {
         result = await response.json();
 
         let videoIndexStr = "";
-
+        videoIdList = [];
 
         for (let i = 0; i < result.items.length; i++) {
             videoIdList.push(result.items[i].snippet.resourceId.videoId);
@@ -355,7 +355,7 @@ async function loadYouTubePlaylist() {
 
         document.querySelector(".videoindexParent").innerHTML = videoIndexStr;
 
-        setActiveVideo(videoIdList[0], "auto");
+        setActiveVideo(videoIdList[Math.floor(Math.random() * videoIdList.length)], "auto");
     } catch (error) {
         console.log("Error: " + error);
 
@@ -395,7 +395,7 @@ async function loadYouTubePlaylist() {
 
 
 if (window.location.toString().indexOf("3000") !== -1) {
-    result = backUpYtIds;
+    //result = backUpYtIds;
     console.log("we are not calling youtube")
     let videoIndexStr = "";
     for (let i = 0; i < videoIdList.length; i++) {
@@ -407,7 +407,9 @@ if (window.location.toString().indexOf("3000") !== -1) {
         videoIndexStr = videoIndexStr + `<li data-num="${i}" class="sliderIndex ${selected}" onClick="setActiveVideo('${videoIdList[i]}', 'manual')"></li>`;
     }
     document.querySelector(".videoindexParent").innerHTML = videoIndexStr;
-    setActiveVideo(videoIdList[0], "auto");
+    let randomVid = videoIdList[Math.floor(Math.random() * videoIdList.length)];
+    console.log("randomVidNum: " + randomVid + " - number: " + videoIdList.indexOf(randomVid));
+    setActiveVideo(randomVid, "auto");
 }
 else {
     loadYouTubePlaylist();
