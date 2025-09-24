@@ -109,11 +109,30 @@
 
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-4">
+
+
+                <div class="input-group"><input type="text" class="form-control" name="Yelp"
+                        placeholder="Search Yelp - (We utilize the weather api above for city location here.)"><span
+                        class="input-group-btn"><button class="btn btn-dark" onClick="customSearch(2)"> <i
+                                class="fab fa-searchengin"></i></button></span></div>
+
+
+            </div>
+            <div class="col-md-4">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary btn-block py-2" onClick="toggleModal()">
                     Calendar
                 </button>
+            </div>
+            <div class="col-md-4">
+
+
+                <div class="input-group"><input type="text" class="form-control" name="Google"
+                        placeholder="Search Google"><span class="input-group-btn"><button class="btn btn-dark"
+                            onClick="customSearch(3)"> <i class="fab fa-searchengin"></i></button></span></div>
+
+
             </div>
             <div class="col-md-12"><input type="text" onKeyUp="filterLinks()" name="filterLinks" class="form-control"
                     placeholder="Search Links">
@@ -244,14 +263,13 @@
         </div>
         <div class="row well mb-5">
             <div class="col-md-3">
-                <div>
 
-                    <div class="input-group"><input type="text" class="form-control" name="RottenTomatoes"
-                            placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button
-                                class="btn btn-dark" onClick="customSearch(0)"> <i
-                                    class="fab fa-searchengin"></i></button></span></div>
 
-                </div>
+                <div class="input-group"><input type="text" class="form-control" name="RottenTomatoes"
+                        placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button class="btn btn-dark"
+                            onClick="customSearch(0)"> <i class="fab fa-searchengin"></i></button></span></div>
+
+
             </div>
             <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" data-toggle=""
                     onClick="toggle('admin')">Admin <i class="fas fa-lock"></i></button>

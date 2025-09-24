@@ -55,7 +55,7 @@ async function fetchWWeather() {
     return contents;
 }
 
-
+let city = "Scottsdale";
 const BuildWeather = async () => {
 
 
@@ -70,7 +70,7 @@ const BuildWeather = async () => {
     let lowest = 0;
     let highest = 0;
     let dateList = [];
-    let city = "Scottsdale";
+
     if (tempData.city.name) {
         city = tempData.city.name;
         document.getElementById("cityName").innerHTML = city;
@@ -498,13 +498,18 @@ function filterLinks() {
 
 
 /*start custom search module*/
-let customSearchArr = [{ siteName: "RottenTomatoes", queryStr: "https://www.rottentomatoes.com/search?search=" }, { siteName: "wikiPedia", queryStr: "https://en.wikipedia.org/wiki/" }];
+let customSearchArr = [{ siteName: "RottenTomatoes", queryStr: "https://www.rottentomatoes.com/search?search=" }, { siteName: "wikiPedia", queryStr: "https://en.wikipedia.org/wiki/", end: "&" },
+{ siteName: "Yelp", queryStr: "https://www.yelp.com/search?find_desc=", end: "&find_loc=" + city + "&" }, { siteName: "Google", queryStr: "https://www.google.com/search?q=", end: "&" }
 
+];
 
+//https://www.yelp.com/search?find_desc=food&find_loc=Scottsdale%2C+AZ
 function customSearch(num) {
+    city = document.getElementById("cityName").innerHTML;
+    customSearchArr[2].end = "&find_loc=" + city + "&";/*ALARM FOR YELP ONLY INDEX #2 */
     let searchQuery = document.querySelector("[name='" + customSearchArr[num].siteName + "']").value;
 
-    window.location = customSearchArr[num].queryStr + searchQuery;
+    window.location = customSearchArr[num].queryStr + searchQuery + customSearchArr[num].end;
     document.querySelector("[name='" + customSearchArr[num].siteName + "']").value = "";
 }
 
