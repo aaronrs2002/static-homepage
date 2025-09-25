@@ -45,6 +45,7 @@ async function fetchWWeather() {
     try {
         if (document.querySelector("input[name='zipCode']").value) {
             zipCode = document.querySelector("input[name='zipCode']").value;
+            localStorage.setItem("zipCode", zipCode);
         }
     } catch (error) {
         console.error(error);
@@ -56,6 +57,10 @@ async function fetchWWeather() {
 }
 
 let city = "Scottsdale";
+if (localStorage.getItem("cityWeather")) {
+    city = localStorage.getItem("cityWeather");
+
+}
 const BuildWeather = async () => {
 
 
@@ -73,7 +78,9 @@ const BuildWeather = async () => {
 
     if (tempData.city.name) {
         city = tempData.city.name;
+        localStorage.setItem("cityWeather", city);
         document.getElementById("cityName").innerHTML = city;
+        document.querySelector("[name='zipCode']").value = "";
     }
 
     for (let i = 0; i < tempData.list.length; i++) {
