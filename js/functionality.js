@@ -79,6 +79,7 @@ const BuildWeather = async () => {
     if (tempData.city.name) {
         city = tempData.city.name;
         localStorage.setItem("cityWeather", city);
+        document.querySelector("name='Yelp'").setAttribute("placeholder", "Search Yelp - " + city);
         document.getElementById("cityName").innerHTML = city;
         document.querySelector("[name='zipCode']").value = "";
     }
