@@ -4,7 +4,7 @@ let videoIdList = ["bk-oTa4p4Fc", "CUpOMSJ1MdU", "jomAUAP976Y", "LDTXoJ5Xzrc", "
 let theInterval = null;
 let activeVideo = 0;
 let runningCarousel = true;
-
+let running = false;
 function setActiveVideo(whichVideo, autoManual) {
 
 
@@ -29,16 +29,21 @@ function setActiveVideo(whichVideo, autoManual) {
 
     if (autoManual === "manual") {
         console.log("You said it was manual!")
-        toggleTimer("manual")
+        toggleTimer("manual");
+        runningCarousel = false;
+        running = false;
     } else {
         if (runningCarousel) {
-            toggleTimer("auto")
-            runningCarousel = false;
+            if (!running) {
+                toggleTimer("auto");
+            }
+
+            running = true;
+
         }
 
 
     }
-    return false;
 }
 
 async function loadYouTubePlaylist() {
@@ -172,9 +177,10 @@ function startCalling(option) {
     if (option === "manual") {
         console.log("we stopped it");
         setActiveVideo(videoIdList[activeVideo], "manual");
+        runningCarousel = false;
         return false;
     } else {
-        console.log("we are moving on!");
+        console.log("we are moving on! runningCarousel: " + runningCarousel);
         if (runningCarousel) {
             setActiveVideo(videoIdList[activeVideo], "auto");
         }
