@@ -175,7 +175,10 @@ function startCalling(option) {
         return false;
     } else {
         console.log("we are moving on!");
-        setActiveVideo(videoIdList[activeVideo], "auto");
+        if (runningCarousel) {
+            setActiveVideo(videoIdList[activeVideo], "auto");
+        }
+
     }
 
 
