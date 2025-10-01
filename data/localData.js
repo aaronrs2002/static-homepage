@@ -25,10 +25,7 @@ const config = {
             "name": "ChatGPT",
             "url": "https://platform.openai.com/apps"
         },
-        {
-            "name": "Calorie Counter",
-            "url": " https://calories-in-calories-out.herokuapp.com/"
-        },
+
         {
             "name": "Discord",
             "url": "https://discord.com/channels/1346549526881898506/1346549526881898508"
@@ -89,10 +86,7 @@ const config = {
             "name": "zillow",
             "url": "https://zillow.com"
         },
-        {
-            "name": "Social Media App",
-            "url": "https://social-media-fun.herokuapp.com/"
-        },
+
         {
             "name": "Wilson Fundraiser",
             "url": "https://wilsonfundraiser.com/?utm_medium=exclude&utm_source=exclude"
@@ -163,18 +157,11 @@ const config = {
             link: "https://www.allsides.com/rss/blog",
         },
         {
-            name: "New Times Phoenix",
-            link: "https://www.phoenixnewtimes.com/phoenix/Rss.xml?id=ThingsToDo",
-        },
-        {
             name: "Missing Details",
             link: "https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss",
         },
 
-        {
-            name: "The Adam Carolla Show",
-            link: "http://feeds.feedburner.com/TheAdamCarollaShow",
-        },
+
     ]
 
 
