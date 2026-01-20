@@ -1,5 +1,5 @@
 const config = {
-
+    theme: "solar",
     weatherInfo: "ecf25726505a27b754e557beb7068e6b",
     ytInfo: "AIzaSyCAvB5c983wQM",
     ytPlaylistId: "PL8JHEysB-dTgIqHV4mrx09Qcsc9lKoog0",

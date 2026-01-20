@@ -29,6 +29,12 @@ setInterval(() => {
     postDateTime();
 }, 10000);
 
+/*detect theme*/
+if (localStorage.getItem("theme")) {
+    config.theme = localStorage.getItem("theme");
+} else {
+    localStorage.getItem("theme", config, theme);
+}
 
 /*start weather api*/
 
