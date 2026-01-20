@@ -5,6 +5,12 @@ let theInterval = null;
 let activeVideo = 0;
 let runningCarousel = true;
 let running = false;
+
+let vidCarouselSetting = "auto";
+if (localStorage.getItem("vidCarouselSetting")) {
+    vidCarouselSetting = localStorage.getItem("vidCarouselSetting");
+}
+
 function setActiveVideo(whichVideo, autoManual) {
 
 
@@ -68,7 +74,8 @@ async function loadYouTubePlaylist() {
 
         document.querySelector(".videoindexParent").innerHTML = videoIndexStr;
 
-        setActiveVideo(videoIdList[Math.floor(Math.random() * videoIdList.length)], "auto");
+
+        setActiveVideo(videoIdList[Math.floor(Math.random() * videoIdList.length)], vidCarouselSetting);
     } catch (error) {
         console.log("Error: " + error);
 
@@ -122,7 +129,7 @@ if (window.location.toString().indexOf("3000") !== -1) {
     document.querySelector(".videoindexParent").innerHTML = videoIndexStr;
     let randomVid = videoIdList[Math.floor(Math.random() * videoIdList.length)];
     console.log("randomVidNum: " + randomVid + " - number: " + videoIdList.indexOf(randomVid));
-    setActiveVideo(randomVid, "auto");
+    setActiveVideo(randomVid, vidCarouselSetting);
 }
 else {
     loadYouTubePlaylist();
@@ -131,6 +138,8 @@ else {
 function toggleTimer(mode) {
 
     console.log("Mode: " + mode);
+
+    localStorage.setItem("vidCarouselSetting", mode);
 
     if (mode === "auto") {
         document.querySelector("[data-bt='pause']").classList.remove("hide");

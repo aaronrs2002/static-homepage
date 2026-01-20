@@ -153,14 +153,14 @@ const config = {
             link: "https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss",
         },
         {
-            name: "Allsides",
-            link: "https://www.allsides.com/rss/blog",
-        },
-        {
             name: "Missing Details",
             link: "https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss",
         },
-
+        ,
+        {
+            name: "My Discussions with AI",
+            link: "https://discussionswithai.blogspot.com/feeds/posts/default?alt=rss",
+        },
 
     ]
 
