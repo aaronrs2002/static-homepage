@@ -680,6 +680,7 @@ function buildRssList() {
     let rssLinkStr = "";
     let rssListHTML = "";
     for (let i = 0; i < rssLinks.length; i++) {
+        console.log("rssLinks[i].name: " + rssLinks[i].name);
         rssLinkStr = rssLinkStr + "<option value='" + i + "' >" + rssLinks[i].name + "</option>";
         rssListHTML = rssListHTML + `<option value="${rssLinks[i].link}">${rssLinks[i].name}</option>`;
     }
@@ -770,7 +771,7 @@ changeFeed(true);
 function downloadData() {
     let tempData = [];
     if (localStorage.getItem("rssLinks")) {
-        tempData = { rssLinks: JSON.parse(localStorage.getItem("rssLinks")), homePageLinks: [], rssLink: "" };
+        tempData = { rssLinks: JSON.parse(localStorage.getItem("rssLinks")), homePageLinks: [], rssLink: "", theme: localStorage.getItem("theme") };
     }
 
     if (localStorage.getItem("homePageLinks")) {

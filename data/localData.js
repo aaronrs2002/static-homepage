@@ -156,11 +156,15 @@ const config = {
             name: "Missing Details",
             link: "https://the-missing-details.blogspot.com/feeds/posts/default?alt=rss",
         },
-        ,
         {
             name: "My Discussions with AI",
             link: "https://discussionswithai.blogspot.com/feeds/posts/default?alt=rss",
         },
+        {
+            name: "web-presence.biz blog",
+            link: "https://web-presence-news.blogspot.com/feeds/posts/default?alt=rss",
+        }
+
 
     ]
 
