@@ -96,8 +96,8 @@ const config = {
             "url": "https://voice.google.com/u/0#inbox"
         },
         {
-            "name": "Google Maps Contributions",
-            "url": "https://www.google.com/maps/contrib/101380000475593513417/"
+            "name": "Recipe-App",
+            "url": "https://online-recipe-app.herokuapp.com/"
         },
         {
             "name": "gitHub",
