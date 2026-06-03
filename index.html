@@ -23,6 +23,19 @@
     <link href="css/style.css" rel="stylesheet">
 
     <title>Homepage</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJWFFXF8G0"></script>
+    <script>
+        const urlStr = window.location.href;
+        if (urlStr.indexOf("file:///Users/") !== -1 || urlStr.indexOf("exclude") !== -1) {
+            console.log("Not running GA");
+        } else {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-JJWFFXF8G0');
+        }
+    </script>
 </head>
 
 <body class="wLogo">
@@ -281,9 +294,9 @@
             <div class="col-md-3">
                 <div>
 
-                    <div class="input-group"><input type="text" class="form-control" name="wikiPedia"
-                            placeholder="Search Wikipedia"><span class="input-group-btn"><button class="btn btn-dark"
-                                onClick="customSearch(1)"> <i class="fab fa-wikipedia-w"></i></button></span></div>
+                    <div class="input-group"><input type="text" class="form-control" name="grokipedia"
+                            placeholder="Search Grokipedia"><span class="input-group-btn"><button class="btn btn-dark"
+                                onClick="customSearch(1)"> <i class="fas fa-bookmark"></i></button></span></div>
 
                 </div>
             </div>

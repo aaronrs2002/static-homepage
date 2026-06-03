@@ -512,7 +512,7 @@ function filterLinks() {
 
 
 /*start custom search module*/
-let customSearchArr = [{ siteName: "RottenTomatoes", queryStr: "https://www.rottentomatoes.com/search?search=" }, { siteName: "wikiPedia", queryStr: "https://en.wikipedia.org/wiki/", end: "&" },
+let customSearchArr = [{ siteName: "RottenTomatoes", queryStr: "https://www.rottentomatoes.com/search?search=" }, { siteName: "grokipedia", queryStr: "https://grokipedia.com/search?q=", end: "&" },
 { siteName: "Yelp", queryStr: "https://www.yelp.com/search?find_desc=", end: "&find_loc=" + city + "&" }, { siteName: "Google", queryStr: "https://www.google.com/search?q=", end: "&" }
 
 ];
