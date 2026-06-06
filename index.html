@@ -74,13 +74,16 @@
             </div>
         </div>
 
+        <div class="card">
 
-        <div class="row">
-            <div class="d-none col-md-12 d-sm-none d-md-none d-lg-block">
-                <div class="row paddBottom">
-                    <div class="col-md-12">
-                        <ul class="inline weather center">
-                            <!--<li><img src="https://openweathermap.org/img/wn/01d@2x.png" class="img-fluid">
+            <div class="card-body">
+                <div class="row">
+                    <div class="d-none col-md-12 d-sm-none d-md-none d-lg-block">
+
+                        <div class="row paddBottom">
+                            <div class="col-md-12">
+                                <ul class="inline weather center">
+                                    <!--<li><img src="https://openweathermap.org/img/wn/01d@2x.png" class="img-fluid">
                                 <div class="center">09-10<br>clear sky</div>
                                 <div class="center">High: 102.52 - Low: 100.51</div>
                             </li>
@@ -100,102 +103,106 @@
                                 <div class="center">09-14<br>clear sky</div>
                                 <div class="center">High: 92.39 - Low: 92.39</div>
                             </li>-->
-                        </ul>
-                    </div>
-                    <div class="col-md-3 centerTxt" id="cityName">Scottsdale</div>
-                    <div class="col-md-6">
-                        <div class="input-group"><input type="text" class="form-control"
-                                placeholder="Search weather by US ZIP CODE" name="zipCode"><span
-                                class="input-group-btn"><button class="btn btn-secondary" onClick="BuildWeather()">Go<i
-                                        class="icon-white icon-search"></i></button></span></div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="centerTxt" id="dateTimeTarget">No Time Yet</div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!--end weather panel-->
-
-
-
-        <div class="row">
-            <div class="col-md-4">
-
-
-                <div class="input-group"><input type="text" class="form-control" name="Yelp"
-                        placeholder="Search Yelp - Scottsdale"><span class="input-group-btn"><button
-                            class="btn btn-dark" onClick="customSearch(2)"> <i
-                                class="fab fa-searchengin"></i></button></span></div>
-
-
-            </div>
-            <div class="col-md-4">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-block py-2" onClick="toggleModal()">
-                    Calendar
-                </button>
-            </div>
-            <div class="col-md-4">
-
-
-                <div class="input-group"><input type="text" class="form-control" name="Google"
-                        placeholder="Search Google"><span class="input-group-btn"><button class="btn btn-dark"
-                            onClick="customSearch(3)"> <i class="fab fa-searchengin"></i></button></span></div>
-
-
-            </div>
-            <div class="col-md-12"><input type="text" onKeyUp="filterLinks()" name="filterLinks" class="form-control"
-                    placeholder="Search Links">
-            </div>
-
-            <div class="col-md-3">
-                <div class="list-group" data-links="1">
-                </div>
-
-
-                <div class="list-group d-block d-sm-block d-md-none pb-4" data-links="2"></div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="row  d-none d-sm-none d-md-none d-lg-block">
-                    <div class="col-md-12">
-                        <div class="input-group mb-3"><input type="text" class="form-control" name="YouTubeQuery"
-                                placeholder="Update video list"><span class="input-group-btn"><button
-                                    class="btn btn-dark" type="button" onClick="searchYouTube()" id="search-button"><i
-                                        class="fas fa-search"></i></button></span></div>
-                    </div>
-                    <div class="col-md-12">
-                        <ul class="videoindexParent"></ul>
-                    </div>
-                    <div class="col-md-12">
-                        <div>
-
-
-                            <iframe class="youTubeIframe" src="https://www.youtube.com/embed/"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+                                </ul>
+                            </div>
+                            <div class="col-md-3 centerTxt" id="cityName">Scottsdale</div>
+                            <div class="col-md-6">
+                                <div class="input-group"><input type="text" class="form-control"
+                                        placeholder="Search weather by US ZIP CODE" name="zipCode"><span
+                                        class="input-group-btn"><button class="btn btn-secondary"
+                                            onClick="BuildWeather()">Go<i
+                                                class="icon-white icon-search"></i></button></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="centerTxt" id="dateTimeTarget">No Time Yet</div>
+                            </div>
 
                         </div>
+
                     </div>
-                    <div class="col-md-12"><small>Carousel Controls</small></div>
-                    <div class="col-md-12"></div>
-                    <div class="btn-group col-md-12" role="group"><button type="button" class="btn btn-secondary"
-                            onClick="previousVideo()">Previous</button><button type="button" class="btn btn-secondary"
-                            onClick="toggleTimer('manual');" data-bt="pause">Pause Carousel</button><button
-                            type="button" class="btn btn-secondary hide" onClick="toggleTimer('auto');"
-                            data-bt="play">Run Carousel</button><button type="button" class="btn btn-secondary"
-                            onClick="nextVideo()">Next</button></div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="form-group"><select class="form-control" onChange="changeFeed(false, 'desktop')"
-                            name="rssOptions">
-                            <!--
+                <!--end weather panel-->
+
+
+
+                <div class="row">
+                    <div class="col-md-4">
+
+
+                        <div class="input-group"><input type="text" class="form-control" name="Yelp"
+                                placeholder="Search Yelp - Scottsdale"><span class="input-group-btn"><button
+                                    class="btn btn-dark" onClick="customSearch(2)"> <i
+                                        class="fab fa-searchengin"></i></button></span></div>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-block py-2" onClick="toggleModal()">
+                            Calendar
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class="input-group"><input type="text" class="form-control" name="Google"
+                                placeholder="Search Google"><span class="input-group-btn"><button class="btn btn-dark"
+                                    onClick="customSearch(3)"> <i class="fab fa-searchengin"></i></button></span></div>
+
+
+                    </div>
+                    <div class="col-md-12"><input type="text" onKeyUp="filterLinks()" name="filterLinks"
+                            class="form-control" placeholder="Search Links">
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="list-group" data-links="1">
+                        </div>
+
+
+                        <div class="list-group d-block d-sm-block d-md-none pb-4" data-links="2"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row  d-none d-sm-none d-md-none d-lg-block">
+                            <div class="col-md-12">
+                                <div class="input-group mb-3"><input type="text" class="form-control"
+                                        name="YouTubeQuery" placeholder="Update video list"><span
+                                        class="input-group-btn"><button class="btn btn-dark" type="button"
+                                            onClick="searchYouTube()" id="search-button"><i
+                                                class="fas fa-search"></i></button></span></div>
+                            </div>
+                            <div class="col-md-12">
+                                <ul class="videoindexParent"></ul>
+                            </div>
+                            <div class="col-md-12">
+                                <div>
+
+
+                                    <iframe class="youTubeIframe" src="https://www.youtube.com/embed/"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-12"><small>Carousel Controls</small></div>
+                            <div class="col-md-12"></div>
+                            <div class="btn-group col-md-12" role="group"><button type="button"
+                                    class="btn btn-secondary" onClick="previousVideo()">Previous</button><button
+                                    type="button" class="btn btn-secondary" onClick="toggleTimer('manual');"
+                                    data-bt="pause">Pause Carousel</button><button type="button"
+                                    class="btn btn-secondary hide" onClick="toggleTimer('auto');" data-bt="play">Run
+                                    Carousel</button><button type="button" class="btn btn-secondary"
+                                    onClick="nextVideo()">Next</button></div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group"><select class="form-control" onChange="changeFeed(false, 'desktop')"
+                                    name="rssOptions">
+                                    <!--
                                                     <option value="https://aaronrstst.blogspot.com/feeds/posts/default?alt=rss">aaronrs2002</option>
                                                     <option value="https://our-basset-hounds.blogspot.com/feeds/posts/default?alt=rss">Our Basset
                                                         Hounds
@@ -230,147 +237,152 @@
                                                     <option value="http://news.yahoo.com/rss">YAHOO</option>
                                                     <option value="https://blog.bootswatch.com/rss/">Bootswatch</option>
                                                     <option value="https://www.realclearpolitics.com/index.xml">Real clear politics</option>-->
-                        </select>
-                        <!-- <div id="newsResponse"></div>-->
+                                </select>
+                                <!-- <div id="newsResponse"></div>-->
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h1 id="activeAndTotal"> </h1>
+                            <div class="btn-group btn-block">
+                                <button type="button" class="btn btn-secondary" onClick="viewPosts('Previous')">
+                                    Previous Post
+                                </button>
+
+                                <button type="button" class="btn btn-secondary" onClick="viewPosts('Next')">
+                                    Next Post
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" role="alert" class="alert alert-info">
+                            <h5 class="my-3 capitalize txtCenter">Blog Posts
+                                <span data-activepost></span>/
+                                <span data-blogmax></span>
+                            </h5>
+
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title" id="activeBlogTitle">Active Blog Title</h5>
+                                    <hr /><i id="activeBlogPubDate">pubDate</i>
+
+
+                                    <div id="activeBlogDescription"></div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <h1 id="activeAndTotal"> </h1>
-                    <div class="btn-group btn-block">
-                        <button type="button" class="btn btn-secondary" onClick="viewPosts('Previous')">
-                            Previous Post
-                        </button>
 
-                        <button type="button" class="btn btn-secondary" onClick="viewPosts('Next')">
-                            Next Post
-                        </button>
+                    <div class="col-md-3 d-none d-sm-none d-md-none d-lg-block">
+                        <div class="list-group" data-links="2"></div>
                     </div>
-                </div>
 
-                <div class="col-md-12" role="alert" class="alert alert-info">
-                    <h5 class="my-3 capitalize txtCenter">Blog Posts
-                        <span data-activepost></span>/
-                        <span data-blogmax></span>
-                    </h5>
 
                 </div>
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" id="activeBlogTitle">Active Blog Title</h5>
-                            <hr /><i id="activeBlogPubDate">pubDate</i>
+                <div class="row well mb-5">
+                    <div class="col-md-3">
 
 
-                            <div id="activeBlogDescription"></div>
+                        <div class="input-group"><input type="text" class="form-control" name="RottenTomatoes"
+                                placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button
+                                    class="btn btn-dark" onClick="customSearch(0)"> <i
+                                        class="fab fa-searchengin"></i></button></span></div>
+
+
+                    </div>
+                    <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" data-toggle=""
+                            onClick="toggle('admin')">Admin <i class="fas fa-lock"></i></button>
+
+
+                        <button class="btn btn-block btn-secondary py-2 hide" data-toggle="admin"
+                            onClick="toggle('')">Close
+                            Admin Panel <i class="fas fa-lock"></i></button>
+                    </div>
+                    <div class="col-md-3">
+                        <div>
+
+                            <div class="input-group"><input type="text" class="form-control" name="grokipedia"
+                                    placeholder="Search Grokipedia"><span class="input-group-btn"><button
+                                        class="btn btn-dark" onClick="customSearch(1)"> <i
+                                            class="fas fa-bookmark"></i></button></span></div>
+
                         </div>
                     </div>
                 </div>
+                <!--start admin panel-->
+
+                <div class="hide" data-toggle="admin">
+                    <div id="editOptions" class="row">
+                        <div class="col-md-12">
+                            <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
+                        </div>
+
+                        <div class="col-md-4"><select class="form-control" onChange="updateCrudFunc()" name="linkEdit">
+                                <option value="editLink">Edit Link</option>
+                                <option value="deleteLink">Delete Link</option>
+                                <option value="addLink">Add Link</option>
+                            </select>
+                            <div class="form-group">
+                                <hr /><select class="form-control" name="linkListTarget">
+
+                                </select>
+                                <input type="text" name="linkName" class="form-control" placeholder="Edit Name">
+                                <input type="text" name="linkUrl" class="form-control" placeholder="Edit URL">
+                                <button class="btn btn-primary btn-block py-2" id="btFunc" onClick="updateLink()">Edit
+                                    Link</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <select name="rssEdit" class="form-control" onchange="updateRssFunc()">
+                                <option value="addRss">Add RSS Feed</option>
+                                <option value="deleteRss">Delete RSS Feed</option>
+                            </select>
+
+                            <div class="form-group">
+                                <hr /><select class="form-control hide" name="rssListTarget">
+
+                                </select>
+                                <input type="text" name="addRssName" class="form-control" placeholder="Add RSS Name">
+                                <input type="text" name="addRssUrl" class="form-control" placeholder="Add RSS Link">
+                                <button class="btn btn-primary btn-block py-2" onClick="updateRssList()"
+                                    id="rssUpdateBt">Add
+                                    Feed</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-grid gap-2  py-2">
+                                <button class="btn btn-light" onClick="javascript:downloadData();"><i
+                                        class="fas fa-file-download"></i>
+                                    Download</button>
+                            </div>
+                            <hr />
+                            <div class="d-grid gap-2">
+
+
+
+                                <label class="custom-file-upload btn btn-light">
+                                    <input type="file" name="importFile" accept=".json"
+                                        onChange="javascript:handleOnChange(event)" />
+                                    Upload "homePageData.json"
+                                </label>
+
+                            </div>
+                            <div class="d-grid gap-2  py-2">
+                                <button id="fileUpload" class="btn btn-success hide"
+                                    onClick="javascript:handleOnSubmit(event, 'json','default')"><i
+                                        class="fas fa-file-upload"></i>
+                                    Upload to browser storage</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
-
-            <div class="col-md-3 d-none d-sm-none d-md-none d-lg-block">
-                <div class="list-group" data-links="2"></div>
-            </div>
-
-
         </div>
-        <div class="row well mb-5">
-            <div class="col-md-3">
-
-
-                <div class="input-group"><input type="text" class="form-control" name="RottenTomatoes"
-                        placeholder="Search Rotten Tomatoes"><span class="input-group-btn"><button class="btn btn-dark"
-                            onClick="customSearch(0)"> <i class="fab fa-searchengin"></i></button></span></div>
-
-
-            </div>
-            <div class="col-md-6"> <button class="btn btn-block btn-secondary py-2" data-toggle=""
-                    onClick="toggle('admin')">Admin <i class="fas fa-lock"></i></button>
-
-
-                <button class="btn btn-block btn-secondary py-2 hide" data-toggle="admin" onClick="toggle('')">Close
-                    Admin Panel <i class="fas fa-lock"></i></button>
-            </div>
-            <div class="col-md-3">
-                <div>
-
-                    <div class="input-group"><input type="text" class="form-control" name="grokipedia"
-                            placeholder="Search Grokipedia"><span class="input-group-btn"><button class="btn btn-dark"
-                                onClick="customSearch(1)"> <i class="fas fa-bookmark"></i></button></span></div>
-
-                </div>
-            </div>
-        </div>
-        <!--start admin panel-->
-
-        <div class="hide" data-toggle="admin">
-            <div id="editOptions" class="row">
-                <div class="col-md-12">
-                    <h2>Admin Panel <i class="fas fa-unlock-alt"></i></h2>
-                </div>
-
-                <div class="col-md-4"><select class="form-control" onChange="updateCrudFunc()" name="linkEdit">
-                        <option value="editLink">Edit Link</option>
-                        <option value="deleteLink">Delete Link</option>
-                        <option value="addLink">Add Link</option>
-                    </select>
-                    <div class="form-group">
-                        <hr /><select class="form-control" name="linkListTarget">
-
-                        </select>
-                        <input type="text" name="linkName" class="form-control" placeholder="Edit Name">
-                        <input type="text" name="linkUrl" class="form-control" placeholder="Edit URL">
-                        <button class="btn btn-primary btn-block py-2" id="btFunc" onClick="updateLink()">Edit
-                            Link</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-
-                    <select name="rssEdit" class="form-control" onchange="updateRssFunc()">
-                        <option value="addRss">Add RSS Feed</option>
-                        <option value="deleteRss">Delete RSS Feed</option>
-                    </select>
-
-                    <div class="form-group">
-                        <hr /><select class="form-control hide" name="rssListTarget">
-
-                        </select>
-                        <input type="text" name="addRssName" class="form-control" placeholder="Add RSS Name">
-                        <input type="text" name="addRssUrl" class="form-control" placeholder="Add RSS Link">
-                        <button class="btn btn-primary btn-block py-2" onClick="updateRssList()" id="rssUpdateBt">Add
-                            Feed</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-grid gap-2  py-2">
-                        <button class="btn btn-light" onClick="javascript:downloadData();"><i
-                                class="fas fa-file-download"></i>
-                            Download</button>
-                    </div>
-                    <hr />
-                    <div class="d-grid gap-2">
-
-
-
-                        <label class="custom-file-upload btn btn-light">
-                            <input type="file" name="importFile" accept=".json"
-                                onChange="javascript:handleOnChange(event)" />
-                            Upload "homePageData.json"
-                        </label>
-
-                    </div>
-                    <div class="d-grid gap-2  py-2">
-                        <button id="fileUpload" class="btn btn-success hide"
-                            onClick="javascript:handleOnSubmit(event, 'json','default')"><i
-                                class="fas fa-file-upload"></i>
-                            Upload to browser storage</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
 
     </div>
 
